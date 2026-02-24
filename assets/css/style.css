@@ -1,0 +1,487 @@
+/* ============================================
+   TRPG 세션 아카이브 - 스타일 시스템
+   Roll20 테마 재현 + 도서관 UI
+   ============================================ */
+
+/* ============================================
+   CSS 변수 (컬러 팔레트)
+   Roll20 기본 색상과 프로젝트 전용 색상을 정의
+   ============================================ */
+:root {
+    /* ===== 메시지 배경색 ===== */
+    --desc-bg: #f1f1f1;        /* 나레이션/서술 메시지 배경 (회색) */
+    --desc-text: #333333;      /* 나레이션 텍스트 색상 */
+    --player-bg: #d3e5f5;      /* 플레이어 메시지 배경 (파란색) */
+    --player-border: #b1d9fa;  /* 플레이어 메시지 상단 구분선 */
+    --player2-bg: #ebe3d9;      /* 플레이어2 메시지 배경 (파란색) */
+    --player2-border: #dfd7cd;  /* 플레이어2 메시지 상단 구분선 */
+    
+    /* ===== 주사위 굴림 결과 색상 ===== */
+    --success-dark: #006400;   /* 보통 성공 (어두운 초록) */
+    --success-hard: #6fda9d;   /* 어려운 성공 (밝은 초록) */
+    --success-extreme: #00d11c; /* 극단적 성공 (청록) */
+    --fail: #81001a;           /* 실패 (어두운빨강) */
+    --fumble: #e41212;         /* 펌블 (빨강) */
+    
+    /* ===== 도서관 테마 색상 ===== */
+    --library-bg: #151b2e;     /* 도서관 메인 배경 (어두운 남색) */
+    --library-card: #16213e;   /* 세션 카드 배경 */
+    --library-accent: #123175; /* 포인트 색상 */
+    --library-text: #e8e8e8;   /* 기본 텍스트 색상 */
+    --library-highlight: #417bf7; /* 강조/하이라이트 색상 (코랄 핑크) */
+    
+    /* ===== 타이포그래피 설정 ===== */
+    --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-header: 'NanumGothic';
+    --font-size-base: 14px;    /* 기본 폰트 크기 */
+    --font-size-desc: 15px;    /* 서술용 폰트 크기 */
+}
+
+@font-face {
+    font-family: 'Yangjin';
+    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumBarunPen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   도서관 랜딩 페이지 스타일
+   메인 index.html의 북카드 그리드 레이아웃
+   ============================================ */
+
+/* ===== 기본 리셋 (모든 요소에 적용) ===== */
+* {
+    box-sizing: border-box;    /* 패딩과 보더를 너비에 포함 */
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== 도서관 페이지 본문 스타일 ===== */
+body.library {
+    background: linear-gradient(135deg, var(--library-bg) 0%, #0d0d1a 100%); /* 어두운 그라데이션 배경 */
+    color: var(--library-text);
+    font-family: var(--font-header);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* ===== 도서관 헤더 (제목 영역) ===== */
+.library-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.library-header h1 {
+    font-family: 'Yangjin';
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;       /* 자간으로 고급스러운 느낌 */
+    text-transform: uppercase;  /* 대문자로 제목 표시 */
+    color: #f1f1f1;
+    margin-bottom: 10px;
+}
+
+.library-header p {
+    font-family: 'NanumBarunPen';
+    color: #888;
+    font-style: italic;
+}
+
+/* ===== 세션 카드 그리드 레이아웃 ===== */
+.session-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* 반응형: 최소 320px로 자동 열 배치 */
+    gap: 30px;                 /* 카드 간 간격 */
+    max-width: 1400px;
+    margin: 0 auto;            /* 중앙 정렬 */
+}
+
+/* ===== 개별 세션 카드 스타일 ===== */
+.session-card {
+    background: var(--library-card);
+    height: min-content;
+    border-radius: 12px;
+    overflow: hidden;          /* 둥근 모서리 밖으로 내용 넘침 방지 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 호버 애니메이션 */
+    border: 1px solid var(--library-accent);
+    margin:auto 0;            /* 중앙 정렬 */
+
+}
+
+.session-card:hover {
+    transform: translateY(-5px); /* 호버 시 카드가 위로 살짝 떠오름 */
+    box-shadow: 0 15px 40px rgba(233, 69, 96, 0.2); /* 코랄 핑크 그림자 */
+}
+
+.session-card a {
+    text-decoration: none;
+    color: inherit;            /* 부모 색상 상속 */
+    display: block;            /* 전체 카드 클릭 가능하게 */
+}
+
+/* ===== 카드 커버 이미지 영역 ===== */
+.card-cover {
+    /* height: 180px; */
+    background: linear-gradient(45deg, var(--library-accent), var(--library-bg));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* 이미지가 영역을 꽉 채우도록 */
+}
+
+.card-cover .placeholder-icon {
+    font-size: 4rem;
+    opacity: 0.3;              /* 아이콘은 은은하게 */
+}
+
+/* ===== 카드 콘텐츠 (제목, 메타, 플레이어) ===== */
+.card-content {
+    padding: 20px;
+}
+
+.card-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--library-text);
+}
+
+/* ===== 카드 메타 태그 (시스템, 날짜 등) ===== */
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;           /* 태그가 넘치면 다음 줄로 */
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.meta-tag {
+    background: var(--library-accent);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--library-text);
+}
+
+.meta-tag.system {
+    background: var(--library-accent); /* 시스템 태그는 하이라이트 색상 */
+    color: var(--library-text);
+}
+
+/* ===== 플레이어 목록 ===== */
+.card-players {
+    font-size: 0.9rem;
+    color: var(--library-text);
+}
+
+.card-players span {
+    color: var(--library-highlight); /* 첫 번째 플레이어 강조 */
+}
+
+/* ============================================
+   세션 뷰어 스타일 (Roll20 채팅 로그 재현)
+   sessions/*.html에서 사용
+   ============================================ */
+
+/* ===== 세션 뷰어 본문 ===== */
+body.session-viewer {
+    background: #f5f5f5;
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    color: var(--desc-text);
+    line-height: 1.5;
+    padding: 20px;
+}
+
+/* ===== 세션 헤더 (제목 + 뒤로가기 버튼) ===== */
+.session-header {
+    max-width: 800px;
+    background: var(--library-bg);
+    color: var(--library-text);
+    padding: 20px 30px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between; /* 제목은 왼쪽, 버튼은 오른쪽 */
+    align-items: center;
+    margin: auto;
+}
+
+.session-header h1 {
+    font-family: 'NanumBarunPen';
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+/* ===== 도서관으로 돌아가기 버튼 ===== */
+.back-link {
+    font-family: 'NanumGothic';
+    display: inline-block;
+    background: var(--library-accent);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.back-link:hover {
+    background: #5b97e6;       /* 호버 시 더 밝은 핑크 */
+}
+
+/* ===== 채팅 컨테이너 ===== */
+.chat-container {
+    max-width: 800px;          /* 가독성을 위한 최대 너비 */
+    margin: 0 auto;            /* 중앙 정렬 */
+    background: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+/* ============================================
+   메시지 스타일
+   Roll20 채팅 메시지 기본 형태
+   ============================================ */
+
+/* ===== 메시지 박스 기본 스타일 ===== */
+.message {
+    padding-left: 45px;        /* 아바타 공간 확보 */
+    padding-right: 16px;
+    padding-bottom: 7px;
+    position: relative;
+}
+
+/* ===== 메시지 구분선 (Spacer) ===== */
+.message .spacer {
+    height: 2px;
+    margin-bottom: 7px;
+}
+
+/* ============================================
+   서술/나레이션 메시지 스타일
+   .message.desc - GM의 서술, 시스템 메시지
+   ============================================ */
+.message.desc {
+    background-color: var(--desc-bg);  /* 회색 배경 */
+    font-style: italic;                /* 이탤릭체로 구분 */
+    font-weight: bold;
+    text-align: center;                /* 가운데 정렬 */
+    color: var(--desc-text);
+}
+
+.message.desc .spacer {
+    background-color: #e1e1e1;  /* 나레이션 구분선 색상 */
+}
+
+.message.desc a {
+    color: inherit;              /* 링크도 같은 색상 */
+    text-decoration: none;
+}
+
+/* ============================================
+   플레이어 메시지 스타일
+   .message.general - 다른 플레이어 채팅 (회색)
+   .message.general.you - 내 플레이어 채팅 (파란색)
+   ============================================ */
+
+/* ===== 다른 플레이어 메시지 (회색 배경) ===== */
+.message.general {
+    background-color: var(--player2-bg);        /* 회색 배경 - 다른 플레이어 */
+}
+
+.message.general .spacer {
+    background-color: var(--player2-border);        /* 회색 구분선 */
+}
+
+/* ===== 내 플레이어 메시지 (파란 배경) ===== */
+.message.general.you {
+    background-color: var(--player-bg); /* 파란 배경 - 내 메시지 */
+}
+
+.message.general.you .spacer {
+    background-color: var(--player-border); /* 파란색 구분선 */
+}
+
+/* ===== 플레이어 아바타 이미지 ===== */
+.message .avatar {
+    position: absolute;         /* 메시지 박스 기준 절대 위치 */
+    left: 5px;
+    top: 0px;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+}
+
+.message .avatar img {
+    max-width: 28px;
+    max-height: 28px;
+    width: auto;
+    height: auto;
+    object-fit: contain;        /* 이미지가 잘리지 않고 전체 표시 */
+    vertical-align: middle;
+}
+
+/* ===== 플레이어 이름 (by:) ===== */
+.message .by {
+    font-weight: bold;
+    color: #333;
+    padding-right: 4px;
+}
+
+/* ============================================
+   CoC 주사위 굴림 템플릿
+   .sheet-rolltemplate-coc-1
+   ============================================ */
+
+/* ===== 굴림 템플릿 컨테이너 ===== */
+.sheet-rolltemplate-coc-1 {
+    background: #f5f5f5;
+    border-radius: 4px;
+    margin: 8px 0;
+    display: inline-block;
+}
+
+/* ===== 굴림 결과 테이블 ===== */
+.sheet-rolltemplate-coc-1 table {
+    border-collapse: collapse;
+    border: 2px solid #333;     /* 굵은 테두리 */
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* ===== 테이블 캡션 (스킬명) ===== */
+.sheet-rolltemplate-coc-1 caption {
+    background: #333;
+    color: white;
+    padding: 6px 12px;
+    font-weight: bold;
+    text-align: center;
+    caption-side: top;          /* 캡션을 테이블 위에 표시 */
+}
+
+/* ===== 테이블 셀 ===== */
+.sheet-rolltemplate-coc-1 td {
+    padding: 4px 10px;
+    border-bottom: 1px solid #999;
+}
+
+.sheet-rolltemplate-coc-1 tr:last-child td {
+    border-bottom: none;        /* 마지막 행은 테두리 없음 */
+}
+
+/* ===== 라벨과 값 셀 스타일 ===== */
+.sheet-rolltemplate-coc-1 .sheet-template_label {
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-coc-1 .sheet-template_value {
+    text-align: center;
+}
+
+/* ============================================
+   주사위 결과 하이라이트
+   인라인 굴림 결과 (.inlinerollresult)
+   ============================================ */
+.inlinerollresult {
+    background: #bebebe;         /* 기본 회색 배경 */
+    border: 2px solid black;
+    padding: 0 3px;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 1.5em;
+    text-align: center;
+}
+
+/* ===== 성공 결과 색상 ===== */
+.result-success-dark {
+    background: var(--success-dark);    /* 보통 성공 - 어두운 초록 */
+    color: white;
+}
+
+.result-success-hard {
+    background: var(--success-hard);    /* 어려운 성공 - 밝은 초록 */
+    color: white;
+}
+
+.result-success-extreme {
+    background: var(--success-extreme); /* 극단적 성공 - 청록 */
+    color: white;
+}
+
+/* ===== 실패 결과 색상 ===== */
+.result-fail {
+    background: var(--fail);            /* 실패 - 빨강 */
+    color: white;
+}
+
+.result-fumble {
+    background: var(--fumble);          /* 펌블 - 어두운 빨강 */
+    color: white;
+}
+
+/* ============================================
+   이미지 스타일
+   ============================================ */
+
+/* ===== 메시지 내 이미지 ===== */
+.message img {
+    max-width: 100%;             /* 컨테이너 너비 초과 방지 */
+    height: auto;
+    margin: 5px 0;
+}
+
+/* ===== 나레이션 내 이미지 (중앙 정렬) ===== */
+.message.desc img {
+    display: block;
+    margin: 10px auto;           /* 가운데 정렬 */
+}
+
+/* ============================================
+   반응형 디자인 (모바일 화면)
+   화면 너비 768px 이하에서 적용
+   ============================================ */
+@media (max-width: 768px) {
+    /* ===== 도서관 모바일 스타일 ===== */
+    body.library {
+        padding: 20px 15px;
+    }
+    
+    .library-header h1 {
+        font-size: 1.8rem;       /* 제목 크기 축소 */
+    }
+    
+    .session-grid {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 20px;
+    }
+    
+    /* ===== 세션 뷰어 모바일 스타일 ===== */
+    .message {
+        padding-left: 15px;      /* 여백 축소 */
+    }
+    
+    .message .avatar {
+        display: none;           /* 모바일에서 아바타 숨김 */
+    }
+    
+    body.session-viewer {
+        padding: 10px;
+    }
+    
+    .session-header {
+        flex-direction: column;  /* 세로 배치로 변경 */
+        gap: 15px;
+        text-align: center;
+    }
+}
