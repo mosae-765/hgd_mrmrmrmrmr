@@ -256,7 +256,7 @@ body.session-viewer {
 
 /* ===== 메시지 박스 기본 스타일 ===== */
 .message {
-    padding-left: 45px;        /* 아바타 공간 확보 */
+    padding-left: 16px;        /* 아바타 공간 확보 */
     padding-right: 16px;
     padding-bottom: 7px;
     position: relative;
@@ -298,6 +298,8 @@ body.session-viewer {
 /* ===== 다른 플레이어 메시지 (회색 배경) ===== */
 .message.general {
     background-color: var(--player2-bg);        /* 회색 배경 - 다른 플레이어 */
+    padding-left: 44px;
+    text-align: justify;
 }
 
 .message.general .spacer {
@@ -469,10 +471,6 @@ body.session-viewer {
     /* ===== 세션 뷰어 모바일 스타일 ===== */
     .message {
         padding-left: 15px;      /* 여백 축소 */
-    }
-    
-    .message .avatar {
-        display: none;           /* 모바일에서 아바타 숨김 */
     }
     
     body.session-viewer {
