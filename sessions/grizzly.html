@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리즐리에게 습격 당하면 파자마라도 달려와 줘 | 대본집</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<style>
+
+:root {
+  --background-color: rgba(44, 44, 44, 0.87);
+  --text-color: white;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+h2 {
+  margin: auto;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+h4 b {
+  font-size: 13px;
+  font-weight: 400;
+  font-style: oblique;
+}
+
+a {
+  color: white;
+}
+
+.desc,
+.dice {
+  padding-left: 0;
+  width: 100%;
+  color: rgb(221, 221, 221);
+  font-style: italic !important;
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+span {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.fix-layout {
+  display: flex;
+  height: 95vh;
+}
+
+.ccfolia_wrap {
+  --font-scale: 1.00;
+  position: relative;
+  padding: 10px !important;
+  background-color: #2c2c2cde;
+  color: #fefefe;
+}
+
+.msg_container {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.msg_container img {
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+p {
+  margin: 0;
+}
+
+.gap {
+  gap: 15px;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 16px 16px;
+}
+
+.gap strong {
+  padding: 3px;
+}
+
+.message-row {
+  background-color: transparent;
+  padding: 12px 0;
+  margin: 0;
+  align-items: flex-start;
+}
+
+.message-row-has-bg {
+  background-color: var(--row-bg-color);
+}
+
+.message-row-other {
+  padding-left: 48px;
+  margin: 8px;
+}
+
+.message-body {
+  flex: 1 1 0%;
+}
+
+.message-meta {
+  display: flex;
+  gap: 6px;
+}
+
+.msg-name {
+  color: var(--msg-name-color, #dddddd);
+}
+
+.msg-timestamp {
+  color: #999;
+}
+
+.msg-category-tag {
+  color: #6c6c6c;
+}
+
+b {
+  color: gray;
+  font-size: 9pt;
+  font-weight: 200;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.message-container.main {
+  background-color: #313131;
+  color: white;
+}
+
+.message-container.info {
+  background-color: #454545;
+  color: #9d9d9d;
+}
+
+.message-container.other {
+  color: gray;
+  background-color: transparent;
+  padding: 12px 0 12px 48px;
+  margin: 8px;
+}
+
+.message-container.desc,
+.message-container.dice {
+  padding-left: 0;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.message-divider {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.msg-info-text,
+.msg-other-text,
+.msg-normal-text {
+  /* white-space: pre-line; */
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.ccfolia_wrap .gap,
+.ccfolia_wrap .msg-normal-text,
+.ccfolia_wrap .msg-info-text,
+.ccfolia_wrap .msg-other-text,
+.ccfolia_wrap .other,
+.ccfolia_wrap .msg-name,
+.ccfolia_wrap .msg-timestamp,
+.ccfolia_wrap .msg-category-tag,
+.ccfolia_wrap .message-container.info span {
+  font-size: calc(1em * var(--font-scale));
+}
+
+.ccfolia_wrap span {
+  font-size: calc(1em * var(--font-scale)) !important;
+}
+
+.msg-other-box {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #4b4b4b;
+  color: #d3d3d3;
+}
+
+.msg-other-name {
+  color: #ffcd6b;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.msg-normal-text {
+  color: white;
+}
+
+</style>
+<body class="session-viewer">
+    <header class="session-header">
+        <h1>그리즐리에게 습격 당하면 파자마라도 달려와 줘</h1>
+        <a href="../index.html" class="back-link">← 목차로 이동</a>
+    </header>
+
+    <main class="chat-container">
+
+        <body class="dark-mode">
+            <div class="ccfolia_wrap">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>아아,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>곧 잠이
+                                들려던 참이었습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>정말 평범하고
+                                평온한 하루였습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>이상하게 한참
+                                전부터 은월광이 조용하다는 걸 빼면 말입니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>매일같이
+                                걸려오던 연락이 이번엔 없는 것도 모자라,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>SNS 같은
+                                곳에서도 소식이 없군요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>벌써 잠든
+                                걸까요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>뭐, 오늘
+                                피곤했을 수도 있죠.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>만일 걱정되는
+                                마음에 문자를... ...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>남기나요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/056c3ff3c71a25ef88a1496b35d20f5ccc3ba0d0b99e63599600135c88ba60a8?t=1775897526617">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>(조용하니
+                                잘됐다)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>삐비빅.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그때 전화
+                                소리가 울립니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>전화를 건
+                                상대는, 은월광이네요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>호랑이도 제
+                                말 하면 온다더니!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>전화를
+                                받을까요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/056c3ff3c71a25ef88a1496b35d20f5ccc3ba0d0b99e63599600135c88ba60a8?t=1775897526617">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>(무시한다...)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>삐비빅!
+                                삐비빅!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>전화는
+                                부재중이 되고 나서도 계속 걸려옵니다...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>(표정
+                                찌푸리며 요란하게 울려대는 휴대폰 바라보다가 전화 받고...) 뭔데?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>있잖아,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>만약 내가
+                                그리즐리에게 습격 당했다면 어쩔 거야?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>어...
+                                갑자기 이건 무슨 질문이죠?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>우정 테스트
+                                뭐 그런 걸까요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>뭐라고
+                                대답해야 적당히 끊을 수 있을까요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>갑자기 무슨
+                                소리야?; (짜증...)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>사실,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/d4199c27e9894681839302e9a1218a82b8320eb5b4f4b534bece9608f4eb3571?t=1775900717591">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그리즐리에게
+                                습격 당했어. 좀 도와줘!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... 뭐?
+                                이상한 헛소리나 하지 말고 끊어. (전화 끊는다...)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>뚝.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>삐비빅!!!!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>말이 되나!!
+                                하지만 묘한 불안감이 느껴지는군요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>지금 당신은
+                                잠들기 직전으로, 파자마 차림에 어느 정도 나른함도 느끼고 있습니다만...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>어쩔까요?
+                                다시 전화를 받을까요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>파자마
+                                차림이라도 좋으니 뛰쳐나갈까요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>(한숨 쉬며
+                                다시 전화 받고...) 진짜면 경찰에 신고나 하지, 왜 나한테 그러는데...?! (황당)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/d4199c27e9894681839302e9a1218a82b8320eb5b4f4b534bece9608f4eb3571?t=1775900717591">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>하지만!
+                                경찰에 신고해도 안 믿어준단 말이야~!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>혀-나-니
+                                선배라면 그리즐리에게 습격당한 불쌍한 후배를 구하러 와줄 거잖아? 웅? (...)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... ...
+                                싫거든?! 습격 당했다면서 어떻게 그렇게 멀쩡하고 이야기하고 있는 건데?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/d4199c27e9894681839302e9a1218a82b8320eb5b4f4b534bece9608f4eb3571?t=1775900717591">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>아니야!!
+                                진짜 습격당했어!! 이러다 뼈째로 잡아먹힐 거야! (대화불능)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>(열받)
+                                하... ... 그러니까, 왜 하필 나인 건데...!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/ff4bfc98c7e73888505f83dfb17354ceb27e5ecda63ab45e0da4b8757371dbc4?t=1775900717668">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>내 단축번호
+                                1번❤</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... ...
+                                ... 왜?!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그야 혀나니
+                                선배니까?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... ...
+                                끊어. (전화 뚝...)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>응 안
+                                믿어~</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>당신은 잠이나
+                                자기로 했습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그리고
+                                다음날부터 당신은 은월광을 볼 수 없었습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그야
+                                당연하잖아요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그리즐리에게
+                                습격당했는데.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>엔딩 2 -
+                                [help me!!!!]</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>KPC
+                                로스트, PC 생환</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>회귀중...
+                                ... ...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/d4199c27e9894681839302e9a1218a82b8320eb5b4f4b534bece9608f4eb3571?t=1775900717591">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>이러다 뼈째로
+                                잡아먹힐 거야!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>그렇답니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그리즐리에게
+                                습격 당했다니 나갈 수밖에 없잖아요!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b2cead68dec703badee4ba61ea140e7b5042cee7b9f7e4de0cab63cf4f4187b?t=1775897526744">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>하...
+                                ... (가서 등짝이나 한 대 쳐야지) 어딘데?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>우리 집!
+                                주소 보내줄 테니까, 빨리 와!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>띠링,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>문자로 어느
+                                가정집 주소가 떡하니 보내졌습니다...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... ...
+                                ... 집에서 어떻게 그리즐리한테 습격 당한다는 거야?!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>요즘 곰은
+                                도심속 집문을 뜯고 들어오기라도 하나 봅니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>아무튼 일단
+                                옷이라도 갈아입고... ...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/a2cde544886b9fee4fa6d05dd3b64c3c9b479e4ecdd5df3750a7ee402c2831ca?t=1775900717601">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>갈아입을
+                                시간이 어디 있어? 지금 1초가 급하다고!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>네,
+                                그렇다네요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>와이셔츠는
+                                내려둬요. 뛰어요, 뛰어!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b2cead68dec703badee4ba61ea140e7b5042cee7b9f7e4de0cab63cf4f4187b?t=1775897526744">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>하.........</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>당신은 문을
+                                열고 집을 나섰습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>아무튼 급한
+                                상황이에요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>마침 집
+                                근처에서 축제가 열리고 있습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>택시나
+                                자동차는 타도 차가 꽉꽉 막혀 늦겠습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그러면 방법은
+                                하나뿐이지 않나요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>그래요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>지름길로
+                                달리는 것뿐입니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>우선 저
+                                벽부터 넘어갈까요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>돌아가면
+                                시간을 꽤 잡아 먹지만 담을 넘어가면 순식간에 시간을 줄여줄 겁니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[오르기
+                                판정]</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div data-dice="true" style="text-align: center;">
+                            <div
+                                style="display: inline-block; background: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 6px 14px; border-radius: 20px; margin-bottom: 6px;">
+                                차현안 - 판정</div><span style="color: red; font-size: 15px; font-weight: bold;"> cc&lt;=20
+                                오르기 (1D100&lt;=20) 보너스, 패널티 주사위[0] ＞ 97 ＞ 97 ＞ 대실패</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>텁,
+                                텁,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>벽에 튀어나온
+                                벽돌을 짚으며 당신은 위로 올라갑니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>좀
+                                불안한데요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그렇게 생각한
+                                순간,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>당신은
+                                미끄러졌습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>우당탕탕!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b2cead68dec703badee4ba61ea140e7b5042cee7b9f7e4de0cab63cf4f4187b?t=1775897526744">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>(그냥가지말까)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>다?행?인
+                                점은 벽을 넘어서 미끄러졌다는 겁니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>너무 급하게
+                                미끄러진 탓에 발목을 쓸렸습니다. 아파.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>HP
+                                -1</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #888888;">system</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[ 차현안 ]
+                                HP : 12 → 11</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>벽을 넘어오니
+                                횡단보도가 보입니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>저길 건너야
+                                월광의 집으로 갈 수 있어요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>마침 초록불
+                                신호가 바뀔 것처럼 깜박거립니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>아무리 바쁜
+                                상황이라고 해도 차가 쌩쌩 달리는 빨간불에 뛰어갈 수는 없는 노릇이에요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>신호가 바뀌기
+                                전에 달려요!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[민첩
+                                판정]</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div data-dice="true" style="text-align: center;">
+                            <div
+                                style="display: inline-block; background: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 6px 14px; border-radius: 20px; margin-bottom: 6px;">
+                                차현안 - 판정</div><span
+                                style="color: rgb(50, 205, 50); font-size: 15px; font-weight: bold;"> cc&lt;=85 민첩
+                                (1D100&lt;=85) 보너스, 패널티 주사위[0] ＞ 49 ＞ 49 ＞ 보통 성공</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>신호가 바뀌기
+                                전에 당신은 인파를 뚫고 달려갑니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>사람들이
+                                의아하게 바라보는 거 같네요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>하지만 그런
+                                걸 신경 쓸 시간이 어디 있나요. 달려!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b2cead68dec703badee4ba61ea140e7b5042cee7b9f7e4de0cab63cf4f4187b?t=1775897526744">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>(등짝치러간다)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>횡단보도를
+                                건너면 순식간에 은월광의 집이 보입니다</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>다
+                                왔다!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그리즐리에게
+                                습격 당하기 직전인 은월광을 구해주기 위해선 조금 더 힘을 내야 합니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>다리에 힘을
+                                넣어요. 달립시다!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[근력
+                                판정]</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div data-dice="true" style="text-align: center;">
+                            <div
+                                style="display: inline-block; background: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 6px 14px; border-radius: 20px; margin-bottom: 6px;">
+                                차현안 - 판정</div><span
+                                style="color: rgb(50, 205, 50); font-size: 15px; font-weight: bold;"> cc&lt;=85 근력
+                                (1D100&lt;=85) 보너스, 패널티 주사위[0] ＞ 54 ＞ 54 ＞ 보통 성공</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>다리에
+                                단단하게 들어간 힘.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>당신은 최선을
+                                다해 달렸습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>허벅지가 터질
+                                것 같습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>근육이 붙는
+                                감각이 느껴지네요. 최고!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그럼
+                                이제...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>도착!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>축하합니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>드디어
+                                은월광의 집에 도착했어요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>똑똑,
+                                정중하게 노크할 시간은 없습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>누군가의
+                                침입을 알리듯 은월광의 집 문은 열려 있습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>(냅다
+                                들어간다...) 은월광...! (등짝칠준비)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>은월광은
+                                자신의 방,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>침대
+                                구석탱이, 벽에 양팔을 벌려 붙인 채로 대피해있었습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그리고 방
+                                한가운데를 차지한 건,</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>음.....</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>곰 인형
+                                탈?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>커엽군요.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b6cc9352542de34d5ee29b90f96a0c048a6b9d9ae0d618ab3eb216ec3e044df?t=1775895235517">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>.........?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[관찰력
+                                판정]</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div data-dice="true" style="text-align: center;">
+                            <div
+                                style="display: inline-block; background: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 6px 14px; border-radius: 20px; margin-bottom: 6px;">
+                                차현안 - 판정</div><span
+                                style="color: rgb(255, 165, 0); font-size: 15px; font-weight: bold;"> cc&lt;=75 관찰력
+                                (1D100&lt;=75) 보너스, 패널티 주사위[0] ＞ 12 ＞ 12 ＞ 대단한 성공</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>뭐, 아무리
+                                봐도 곰 옷을 입고 있는 사람으로 밖에 보이지 않는데요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>지금 이것
+                                때문에 당신을 여기로 부른 거란 말인가요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>진짜...?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그냥 곰 인형
+                                탈이잖아!!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/aef4f08813190370961debd5b8970db0bf0755b4d762c26368f7406af949ad9f?t=1775897526626">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>......... 이건 또 누군데?! (곰 인형 탈 덥썩 붙잡기...)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #888888;">그리즐리</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>쳇.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #888888;">그리즐리</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>방해꾼이
+                                나타났꾼.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그렇게 말한
+                                그리즐리는 점점 희미해지더니 사라졌습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>뭐,
+                                뭐야?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>은월광과
+                                차현안, 이성 체크 (0/1)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div data-dice="true" style="text-align: center;">
+                            <div
+                                style="display: inline-block; background: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 6px 14px; border-radius: 20px; margin-bottom: 6px;">
+                                차현안 - 판정</div><span
+                                style="color: rgb(255, 96, 78); font-size: 15px; font-weight: bold;"> cc&lt;=60 이성체크
+                                (1D100&lt;=60) 보너스, 패널티 주사위[0] ＞ 61 ＞ 61 ＞ 실패</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div data-dice="true" style="text-align: center;">
+                            <div
+                                style="display: inline-block; background: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 6px 14px; border-radius: 20px; margin-bottom: 6px;">
+                                은월광 - 판정</div><span
+                                style="color: rgb(30, 144, 255); font-size: 15px; font-weight: bold;"> cc&lt;=70 이성체크
+                                (1D100&lt;=70) 보너스, 패널티 주사위[0] ＞ 25 ＞ 25 ＞ 어려운 성공</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #888888;">system</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[ 차현안 ]
+                                SAN : 60 → 59</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>이제 방에는
+                                멀쩡한 은월광과 너덜너덜해진 파자마를 입은 당신만이 남아 있습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>어, 뭐...
+                                서로 인사라도 할까요?</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/f89932c292cb2baafd4d8449c06a06c1b9d2e69b4260e30e3e302a285085f7e4?t=1775900717838">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>...
+                                ...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/ff4bfc98c7e73888505f83dfb17354ceb27e5ecda63ab45e0da4b8757371dbc4?t=1775900717668">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>진짜 왔네
+                                혀나니언니(ㅎㅎ)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b6cc9352542de34d5ee29b90f96a0c048a6b9d9ae0d618ab3eb216ec3e044df?t=1775895235517">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... ...
+                                ... 방금 뭐야...?!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/a2cde544886b9fee4fa6d05dd3b64c3c9b479e4ecdd5df3750a7ee402c2831ca?t=1775900717601">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>말했잖아,
+                                그리즐리한테 습격당했다고!!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b6cc9352542de34d5ee29b90f96a0c048a6b9d9ae0d618ab3eb216ec3e044df?t=1775895235517">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>(황당) 뭐,
+                                무슨...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/83990474e224e646c209121f98a0da0a1656bc4855d2a2d3a3a0436fb6e609f0?t=1775898769537">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그런데 왜
+                                갑자기 사라진 거지...? 아무튼 살았다. 역시 혀나니 언니 덕이야.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b2cead68dec703badee4ba61ea140e7b5042cee7b9f7e4de0cab63cf4f4187b?t=1775897526744">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>(전혀이해안된다) ... ... 아무튼, 그럼 이제 됐지? 간다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/ff4bfc98c7e73888505f83dfb17354ceb27e5ecda63ab45e0da4b8757371dbc4?t=1775900717668">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>흐흠,
+                                구해줘서 고마운데 밥이라도 해줄까? 간식 상자라도 털어줄까? 응? 여기까지 왔는데 벌써 가면 아쉽잖아!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/9b2cead68dec703badee4ba61ea140e7b5042cee7b9f7e4de0cab63cf4f4187b?t=1775897526744">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #795548;">차현안</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>... ...
+                                아니, 됐어! (벅저벅저)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt=""
+                            src="https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/d4199c27e9894681839302e9a1218a82b8320eb5b4f4b534bece9608f4eb3571?t=1775900717591">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #03a9f4;">은월광</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;">
+                            <span>(ㅠㅠ)</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>도대체 무슨
+                                반응을 해야 할진 모르겠지만...</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>아무튼
+                                은월광은 거?짓말?을 한 것이 아니란 겁니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>'여기서
+                                그리즐리에게 습격당할 일이 어딨어?'</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>그런 생각을
+                                조금이라도 했다면 반성하세요!</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>엔딩 1 -
+                                [yes help me!]</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>KPC, PC
+                                생환</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name" style="--msg-name-color: #888888;">
+                            </strong><span class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">-
+                                main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>이성 회복
+                                1d5</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="message-body">
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>1D5
+                                (1D5) ＞ 2</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="message-divider">
+                <div class="gap message-row cat-main  ">
+                    <div class="msg_container"><img alt="" src="https://ccfolia.com/blank.gif">
+                    </div>
+                    <div class="message-body">
+                        <div class="message-meta"><strong class="msg-name"
+                                style="--msg-name-color: #888888;">system</strong><span
+                                class="msg-timestamp">2026/4/12</span><span class="msg-category-tag">- main</span>
+                        </div>
+                        <div class="msg-normal-text" style="display: flex; align-items: center; gap: 6px;"><span>[ 차현안 ]
+                                SAN : 59 → 61</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </body>
+    </main>
+</body>
+
+</html>
