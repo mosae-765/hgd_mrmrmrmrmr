@@ -353,6 +353,7 @@ body.session-viewer {
     border-radius: 4px;
     margin: 8px 0;
     display: inline-block;
+    width: 100%;
 }
 
 /* ===== 굴림 결과 테이블 ===== */
@@ -361,6 +362,7 @@ body.session-viewer {
     border: 2px solid #333;     /* 굵은 테두리 */
     border-radius: 4px;
     font-size: 13px;
+    
 }
 
 /* ===== 테이블 캡션 (스킬명) ===== */
