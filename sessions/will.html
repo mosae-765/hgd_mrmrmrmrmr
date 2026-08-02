@@ -1,0 +1,2871 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유서 | 대본집</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<style>
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #cocoback {
+      position: relative;
+    }
+
+    body #cocoback,
+    body #cocoback * {
+      line-height: 1;
+      font-family: 'Pretendard', 'NanumBarunGothic', 'NanumGothic', sans-serif !important;
+    }
+
+    /*(디폴트)기본폰트설정*/
+    #cocoback p {
+      position: relative;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    /*(디폴트)기본 글자색*/
+
+
+    /*==(디폴트)상단 제목바==*/
+    #tr_top {
+      position: fixed;
+      z-index: 2;
+      padding: 15px 3%;
+      width: 94%;
+      height: 30px;
+      background: #212121;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      top: 0;
+    }
+
+    #tr_top a {
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    #tr_top a:hover {
+      color: #ae70ff;
+    }
+
+    .ccb-content {
+      padding-top: 60px;
+      background: #212121;
+    }
+
+    /*(디폴트)기본 배경*/
+    .tcimg {
+      width: 100%;
+      max-width: 1200px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .ccb-player {
+      position: relative;
+      padding: 11px 15px 11px 65px !important;
+      line-height: 1.9 !important;
+      letter-spacing: -0.01em;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin: 0;
+    }
+
+    /*(디폴트)발언 기본 설정*/
+
+    .ccb-player b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #888888;
+    }
+
+    /*(디폴트)발언자 이름 설정*/
+    .ccb-player:after {
+      display: none;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 20px;
+      left: 15px;
+      background-size: cover;
+      background-position: top center;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /*(디폴트)발언자 두상 설정*/
+
+    /*==(디폴트)탭 기본 설정==*/
+    .ccb-tab {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      background: #666;
+    }
+
+    .ccb-tabtitle {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 1;
+      padding: 7px;
+      border-radius: 5px;
+      background: #ffffff;
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+      max-width: 23px;
+      overflow: hidden;
+    }
+
+    .show-img .ccb-tabtitle {
+      padding: 5px 15px;
+      font-size: 12px;
+      width: fit-content;
+      max-width: none;
+      margin-bottom: 9px;
+      position: relative;
+    }
+
+    .show-img:not(.tabMain) .ccb-tabtitle+.ccb-player {
+      border-top: 0;
+    }
+
+    .tabMain .ccb-tabtitle,
+    .tabTalk .ccb-tabtitle {
+      display: none;
+    }
+
+    /*(디폴트)두상있는 발언*/
+    .show-img .ccb-player {
+      min-height: 50px;
+      padding: 20px 15px 11px 65px !important;
+    }
+
+    .show-img .ccb-player:after {
+      display: block;
+    }
+
+    .tabMain {
+      background: #2c2c2c;
+    }
+
+    /*(디폴트)메인탭 배경색*/
+    .tabInfo {
+      background: #455a64;
+    }
+
+    /*(디폴트)정보탭 배경색*/
+
+    /*==(디폴트)비밀 탭 설정==*/
+    .tabSecret {
+      border-left: 10px solid #ae70ff;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background: #000;
+    }
+
+    .tabSecret .ccb-tabtitle {
+      padding: 5px 15px;
+      font-size: 12px;
+      width: fit-content;
+      max-width: none;
+      margin-bottom: 9px;
+      position: relative;
+      background: #ae70ff;
+    }
+
+    .tabSecret .ccb-player b {
+      font-size: 13px;
+      color: #999 !important;
+      display: inline;
+      margin-right: 10px;
+    }
+
+    .tabSecret .continued-line b {
+      display: inline !important;
+      visibility: hidden;
+    }
+
+    .tabSecret .ccb-tabtitle+.ccb-player {
+      border-top: 0;
+    }
+
+    /*==(디폴트)잡담 탭 설정==*/
+    #cocoback .tabTalk p {
+      font-size: 14px;
+    }
+
+    .tabTalk {
+      background: #424242;
+    }
+
+    .tabTalk .ccb-player b {
+      font-size: 13px;
+      color: #999 !important;
+      display: inline;
+      margin-right: 10px;
+    }
+
+    .tabTalk .continued-line b {
+      display: inline !important;
+      visibility: hidden;
+    }
+
+
+    /*== (디폴트)gm,나레이션 발언 설정==*/
+    .tabMain .p_c_gm b,
+    .tabMain .p_c_gmdesc b,
+    .tabInfo .p_c_gm b,
+    .tabInfo .p_c_gmdesc b {
+      display: none;
+    }
+
+    .tabMain .p_c_gm:after,
+    .tabMain .p_c_gmdesc:after {
+      display: none;
+    }
+
+    .tabMain .p_c_gm {
+      padding: 11px 15px 11px 65px !important;
+      min-height: unset;
+      background: #333;
+    }
+
+    .tabMain .p_c_gmdesc {
+      padding: 11px 15px 11px 15px !important;
+      min-height: unset;
+      text-align: center;
+      background: #5b5b5b;
+    }
+
+    /*==(디폴트)시스템 발언 설정==*/
+    #cocoback .p_system {
+      text-align: center;
+      font-size: 13px !important;
+      color: #ddd;
+      padding-left: 15px !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #cocoback .p_system b {
+      color: #fff !important;
+      background: #999;
+      width: fit-content;
+      padding: 0 10px;
+      margin-bottom: 10px;
+      border-radius: 25px;
+    }
+
+    span.dice-line {
+      background-color: #111;
+      font-size: 13px;
+      line-height: 1.4 !important;
+      padding: 5px 20px;
+      border-radius: 5px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: inline-block;
+      margin: 5px 0;
+    }
+
+    /*주사위*/
+
+
+    /*==(디폴트)연속 발언 처리==*/
+    .continued-line b,
+    .continued-line:after {
+      display: none !important;
+    }
+
+    #cocoback .continued-line {
+      margin-top: -9px !important;
+      padding-top: 5px !important;
+      border-top: none !important;
+      min-height: unset !important;
+    }
+
+
+    /* ==(디폴트)탭 조작==*/
+    #ccb-ui {
+      position: relative;
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    #ccb-btn {
+      background: #ae70ff;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      width: 60px;
+    }
+
+    #ccb-lst {
+      display: none;
+      position: absolute;
+      top: 35px;
+      right: 0;
+      background: #444;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #777;
+      z-index: 1000;
+      width: max-content;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    #ccb-lst.show {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ccbtoggle {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #eee;
+    }
+
+    .ccbtoggle input {
+      accent-color: #ae70ff;
+      cursor: pointer;
+    }
+
+    .hidden-tab {
+      display: none !important;
+    }
+
+    .p_c2:after {
+      content: '';
+      background-image: url('https://storage.ccfolia-cdn.net/users/8Sn2cUHGylN7ej11hdurV9etAFv1/files/fec65c5ac9678b8ae61be4189e4e905317a36e8c7982cc377687bc25ab814a54?t=1784953804599') !important;
+    }
+
+    .p_c3:after {
+      content: '';
+      background-image: url('https://storage.ccfolia-cdn.net/users/miHOqF3GqdfpRktMFHNsvd1mnUr1/files/dd56d0bbbb76205354529d5f82faa98462183e384746e530fea259b35ea80680?t=1784902249872') !important;
+    }
+
+    .p_c3 b {
+      color: #a48f84 !important;
+    }
+  </style>
+<body class="session-viewer">
+    <header class="session-header">
+        <h1>유서</h1>
+        <a href="../index.html" class="back-link">← 목차로 이동</a>
+    </header>
+    
+    <main class="chat-container">
+
+
+<body>
+  <div id="cocoback">
+    <div class="ccb-content">
+      <div class="ccb-tab tabMain show-img">
+        <div class="ccb-tabtitle">메인</div>
+        <p class="ccb-player p_c1"><b> </b>
+          도입.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          https://youtu.be/jBtn7k5Pa9Y?si=TrS8_q4xgLSkMv5Y
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          [ 전례 없는 꽃가루 알레르기로 시민들이 감기 증상과 유사한 불편을 호소하고 있습니다. ]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          [ 전문가들은 기후 변화와 환경 요인이 원인이라며 예방 대책을 권고하고 있습니다. ]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          [ 보건 당국은 마스크 착용 및 위생 수칙 준수를 당부하고 있으며···. ]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          틀어놓은 TV에서 아나운서가 또렷한 발음으로 대본을 읽어내립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          확실히 최근들어 주변에 감기 기운을 호소하는 사람들이 부쩍 늘었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          오늘만 해도 마스크를 구비해두는 편이 좋겠다는 지인의 권고를 듣고 돌아오는 길입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안의 장례식이 끝나고도 일주일이라는 시간이 흘렀습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신의 일상은 끊임없이 몰아치는 일로 바쁘기 그지 없어, 하루하루 벅차게 살아가는 게 고작입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 매일을 연명합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하여튼 그렇게 오늘도 살아가던 차였습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          우편함에 덩그러니 놓여져 있던 편지를 읽기 전까지만 해도요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아직 잉크 냄새가 남아 있는 듯한 편지지에는 단조로운 말투로 짤막한 문구가 적혀있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          ‘차현안이 당신에게 남긴 유서를 갖고 있다’고.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안의 사망 이후 공개된 유서에는 스무 장이 넘는 두꺼운 문서에는 주변 지인들에게 남기는 감사와 작별 인사,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          재산 분배와 신변 정리에 관한 상세한 내용이 꼼꼼히 적혀 있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          딱 당신에게 남길 말을 제외하고요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          휴대전화 전화번호부에 존재하는 모든 사람에게 한 마디씩 남겼는데 오로지 당신의 언급만 없었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당연합니다...
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그런데, 그런 차현안이 당신에게 유서를 남겼다니.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 누군가 꾀를 부렸나. (편지지 응시하며...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          단순하게 장난을 쳤다고 넘겨짚기엔 차현안의 주변에 이런 악질적인 장난을 칠 사람은 없었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          또한 당신이 유언을 듣지 못했다는 사실에 관해서 아는 사람 역시 그렇게 많지 않고요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          편지에는 한 주소도 같이 적혀 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... (주소 그대로 지도 어플에 검색해본다...) 이러면 갈 수밖에 없잖아...
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          1. 자살 저택
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          https://youtu.be/9kT9QXuXvN4?si=7HAmvWCLJdFgb6GB
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 당신은 편지에 적힌 주소로 이동합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          목적지는 도심에서 한참 떨어져있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차량 헤드라이트가 깜빡이는 그림자를 길 위에 드리우며, 도심의 불빛이 멀어질수록 안개가 서서히 내려앉습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          마침내 도착한 곳은 덩그러니 세워진 저택으로,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          무채색 돌담 너머로 새하얀 장미가 흐드러지게 피어 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          교육 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=50 교육 (지식) (1D100&lt;=50) 보너스, 패널티 주사위[0] ＞ 10 ＞ 10 ＞ 대단한 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          처음 보는 품종의 장미입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          길거리나 화원에서 흔히 볼 수 있는 장미는 아닙니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그것보단 오래된 종이를 접어 만든 것처럼 퍼석퍼석한 질감으로, 아직 꽃을 피워내지 않은 봉오리 상태입니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...? 처음 보는 장미네... (중얼거리며.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          장미에서 시선을 떼면 꽉 닫혀있는 정문이 우뚝 서서 당신을 내려다보고 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (초인종 같은 건 있나?) 생긴 것만 보면 쾅쾅 두드려야 될 것 같은데 말이지.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          초인종은 멀쩡하게 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (벨 누른다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          초인종을 누르자, 안에서 별 대꾸도 없이 저절로 문이 열리며···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신이 들어가자마자 닫힙니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (...?)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          저택 앞에는 돌담 너머로 언뜻 보였던 새하얀 장미로 가득한 정원이 펼쳐져 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          은은한 풀벌레 소리와 함께 규칙적인 소리가 들려옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          집중해서 들어보면 싹둑, 가위로 무언가를 자르는 소리입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          소리가 나는 방향으로 가면,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정원사처럼 손질용 가위를 든 차현안과 마주합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이미 죽은 사람을 마주한 충격에, 이성 판정 (1/1d3).
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=50 이성체크 (1D100&lt;=50) 보너스, 패널티 주사위[0] ＞ 99 ＞ 99 ＞ 실패
+          </span></p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b><span class="dice-line">
+            1D3 (1D3) ＞ 3
+          </span></p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... ... 이게 무슨. (잠시 멍하니 바라보다가, 손으로 눈 벅벅 비빈다...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 아, 왔네. (무심하게 시선 돌리고 마저 장미 손질한다.)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          내가... 환각이라도 보고 있는 건가? (믿기지 않는다는 듯이, 당신 향해 성큼 다가간다...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          아니, 그쪽 시야는 멀쩡하거든.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그럴 리가... 아니, 당신은... (가까이 다가가, 당신 팔 한 번 움켜쥐려 손 들이민다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          촉감이 느껴집니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (뭐 하냐는 듯한 표정으로 바라보기...)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... ... (손이 파르르 떨린다.) 살아... 있던 거야? (당신 팔을 더욱 움켜쥐고.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그건 아니고. ... 뭐, 따지자면 유령에 가까우려나.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          뭐?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          이 저택의 관리와 처분을 까먹어서 왔거든. 여길 벗어날 수는 없으니 지박령에 가깝겠네.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          무슨 말을, 지금... (역시 헛것인가. 다시 제 눈 비벼보고, 미간 꼬집듯이 잡는다.) 나는 당신이 내게 남긴 유서니 뭐니를 확인하러 왔는데...
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그래. 내가 그쪽에게 넘기려고. 여기, 이 장미 정원.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ...? (영 이해가 되지 않는다.) 그러니까 설명을 좀, 해주면 안 되나? 처음부터 끝까지 무슨 소린지 모르겠거든... (머리 짚으며.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 아직도 이해를 못 하겠나? 난 죽은 게 맞아. 근데, 이 저택의 관리와 처분을 까먹어서 온 거고. 그러니 지박령 비슷한 거고, 그쪽에게 줄 건 이 장미 정원이라는 거지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그러니까 왜 분명 죽었, 는데 내 눈 앞에 나타났으며, 이 저택은 뭐고, 지박령이니 뭐니...! (...) 아니, 역시 내 정신이 한계인가 보지... ... (한숨 내쉰다. 그렇다고 해서, 당신을
+          다시금 봐놓고 떠날 생각은 없다... 빤히 얼굴 응시하며.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 이봐. 무슨 생각을 하는 거야? 방금 내 팔도 잡지 않았나? 난 진짜라고.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          아, 그리고... 물론 그 이유만으로 그쪽을 부른 건 아니고. 이 저택의 관리를 마치면 돌아가야 하는데, 나 혼자 하기엔 할 일이 너무 많거든. 그러니, 이틀 정도만 관리를 도와.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 그건 또 무슨... (한숨...) 당신이 날 보고, 도와달란 소리를 하고 앉은 건가. (역시 환각이다. 환시고, 환촉이야... ...) 관리를 도와주고, 나한테 넘기려는 건가?
+          저택인지 정원인지.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그래. 마땅히 맡길 사람이 없었거든. 왜, 전에도 이러지 않았나? 거기서 유서를 줬을 때 말이야. 그때랑 비슷한 논리야. 내 주변인들에겐 괜히 짐을 더 얹어주긴 싫단 말이지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... (살짝 목소리 낮아진다.) 당시 내게도 유서를 남겼으니, 이번에 줄 건 없다... 같은 생각인가 싶었는데. (허. ...다시 돌아오고.) 정말 당신이 차현안 씨라고 하자. 이 저택은 대체
+          어디서 난 거야? 내가 아는 당신 사유물 중 이런 건 없었다고.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 그쪽이 그걸 어떻게 다 아는데? 이 저택은, 주인은 따로 있지만 내가 관리하고 있는 거야. 과거의 사건때문에 아무도 가까이 오지 않는 곳이라. 전에 사람이 많이 죽었거든.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 당연하지 않나? 당신이 내게 남긴 말은 없더라도, 남들에게 무슨 말을 했는지... 무얼 어떻게 나누고자 했는지, 전부 물어보고 다녔지. 그게 아니더라도 이 정도 되는 건물에 당신이 들락거리는
+          건 딱히 본 적 없다고. (뒷조사 했단 말을 자연스럽게...) 주인이 따로 있어? ... 과거의 사건? (이건 또 무슨... 의아해하며.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 허. 무슨 그런 짓을 하고 다녀? (어이없다는 듯 바라보고.) 나도 한동안은 이 저택을 잊고 살았으니까. 그러니 이렇게 뒤늦게 관리하러 온 거 아니야. (...) 말했잖아. 전에
+          사람이 많이 죽었다고. 그뿐이야. ... 딱히 죽어서도 그쪽을 다시 보고 싶진 않았지만, 나 혼자 하기엔 일이 많아서 부른 것뿐이니 괜한 착각은 하지 마.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          하지 않는 쪽이 이상하지 않나? 흐흠. (... 아, 이런 대화가 얼마만인지...) (고작 장례식에서 일주일이 지났을 뿐인데도. 기분이, 너무 이상하다...) 그래. 당신이 시키는 일을 내가 제대로
+          할 수 있을진 모르겠지만. 이틀 쯤이야 당신에게 내어줄 수 있지. (... 제대로 하지 않으면 이 환각을 며칠 정도만 더 연명할 수 있으려나. 그런 생각하며...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 전혀 변한 게 없는 것 같군. 내가 죽었으니, 이제는 다른 이에게 주인공 타령을 하고 다니려나? 응? 아쉽게 되었어. 죽기 전에 그쪽을 잡지도 못하고, 내 끝도 그쪽이 원하던 방식이 아니라
+          말이지. (잠시 째려보고...) 그래. 할 일은 별거 없거든. 그냥 청소만 도우면 돼.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (... 대체제를 찾을 수 있을 터라 생각하는 건가.) 맞아, 그리 약속까지 했는데 홀로 가버리다니... 참 너무하지 않나? 덕분에 당신이 그리 싫어하던 내가, 추락할 수도 없게 되었다고.
+          (흐흠.) 그래놓고 불러내서는 시키는 게 잡일이라니. 뭐, 일단 두고 보죠. 어쩌면 이틀 새에 어찌 판이 바뀔 수도 있고. (그래도 아직 악역 행세를 잊진 않았다. 그게... 다행인 것 같아.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 그거 참 아쉽게 되었네. 그래도 그쪽보다 더한 이들을 처리하고 다녔으니 됐어. 뭐, 언젠가는 나 말고 또 다른 이가 그쪽을 추락시키겠지. 이틀 동안 부려 먹기나 잘해야겠네. (...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          말이 끝나자마자 차가운 물방울이 콧잔등으로 떨어집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이내 비가 쏟아지기 시작합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 들어갈까, 라는 한 마디만 남기고 안쪽을 향해 턱짓합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신이 쉴 수 있는 손님 방은 2층에 마련되어 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          당신 방은 어디지?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          알아서 뭐 하게?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          당신 위치정도는 알아야 필요할 때 부르지. 식사시간이라거나, 뭐, 내가 여기서 기물 몇 개 부서버릴 수도 있고... (농조.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 됐어. 나도 정리 하러 돌아다닐 거니까. 배고프면 이거나 먹고. (언제 들고 왔는지 빵이랑 스프 건넨다.) 일단 손님 방에 들어가 있어.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (흐흠.) 당신이 내게 밥을 챙겨주는 날이 다 오네... 그래, 뭐. 앞으로 계속 얼굴 맞댈 테니까. (빵 한 입 베어물고, 잠시 당신 바라보다가 시선 거둬 손님 방 향한다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          간단히 식사를 먹거나 휴식을 취하고 나면 시간 탓인지 날씨 탓인지 바깥은 어둑합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 청소 도구와 갈아입을 옷을 대충 던져댑니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          난 서재에서 서류 정리나 할 테니까, 그쪽은 청소 좀 하고 있어. (그 말만 하고는 나간다…)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          서재? (서재가 어디지. 당장은 아니더라도 찾아가서 방해할 생각밖에...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (이미사라짐)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          아무튼… 청소를 시작합시다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          [2층 청소]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안의 방, 당신의 방, 서재가 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          청소할 수 있는 건 [복도]와 [당신의 방] 정도입니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (차현안 씨의 방으로 가고 싶은데...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그러다가 걸리면 바로 쫓겨날지도...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (안돼)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... 우선 일 하는 체라도 해야지. (복도 청소를 시작한다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          [복도]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          먼지쌓인 복도를 쓸고 닦다보면,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          누군가 지나간 것 같은 발자국이 자꾸만 생깁니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          복도에는 당신 외엔 아무도 없는데.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ...? 차현안 씨가 지나가기라도 했나. (주변 두리번...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          주변은 아무도 없이 고요하기만 합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          뭐지? 귀신... (...) 하기야, 이것도 내 문제인가... ... (이미 지박령이니 뭐니 하는 이가 저기 있는데. 마저 복도를 닦는다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          복도는 금방 청소가 끝납니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (슬쩍 서재로 가는 건...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그러다가 차현안과 눈 마주치면 쫓겨날지도...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (제 방으로 청소도구 들고 이동...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          [당신의 방]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          창문 밖으로는 백장미 정원 위로 비가 쏟아지고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          주변에는 건물 하나 보이지 않아 비현실적인 풍경입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          옷장은 열기만 해도 먼지가 날리고, 척 봐도 시대에 맞지 않는 옷이 몇 벌 걸려 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          마치 이 공간만 당신이 일반적으로 아는 법칙에서 벗어난 것 같습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 판정 (0/1).
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=47 이성체크 (1D100&lt;=47) 보너스, 패널티 주사위[0] ＞ 18 ＞ 18 ＞ 어려운 성공
+          </span></p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... 환각... (그것 말고는, 쉬이 설명할 방도가 없다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          어쨌든, 청소를 시작하면…
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어라?
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이 물건, 아까는 책상 위에 있었던 것 같은데, 다시 확인하니 의자 위에 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (환각)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... 허, 정말 저 인간부터 여기까지 귀신으로 차있기라도 한 건지... ...
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          아무튼, 이제 1층으로 내려갈까요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (뒷모습이라도 보고 싶은데...) (아련하게 서재쪽 바라본다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          슬쩍 보는 건 괜찮으려나...?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (서재 문 살짝 열고, 문틈으로 흘겨보기...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안은 말 그대로 서류를 정리하고 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (말걸고싶다방해하고싶다...) (...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그러다가,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안과 눈이 마주칩니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ...?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (아.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          이봐, 청소하라고.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          잘 하고 있어. 이미 2층은 대부분 치웠는데. (싱긋...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그러면 1층도 하러 가.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          휴식시간 같은 건 없나? 그 서류, 무슨 내용이지? (자연스럽게...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          나가.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (...) (진짜 쫓겨날 것 같아서 슬쩍 뒷걸음...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (쫓아내고 문 쾅)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (덩그러니)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          뭐, 그럼 1층으로 가볼까...
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          [1층 청소]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          중앙 홀은 수십 개의 시계로 장식되어 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          입구를 지나 중앙에 자리한 고풍스러운 계단은 두 층을 잇고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          또, 청소를 하다 보면…
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          관찰 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=80 관찰력 (1D100&lt;=80) 보너스, 패널티 주사위[0] ＞ 32 ＞ 32 ＞ 어려운 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          생전 처음 보는 엄지손톱만한 검은 벌레를 몇 마리 발견합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          무당벌레처럼 생겼지만 아무런 무늬도 없고 광택도 없습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          얼핏 보면 어딘가에 잘못 묻은 검댕 같기도 합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...? 장미도 그렇고, 처음 보는 생물들이... (살아있는 건 맞나? 슬쩍 청소도구로 툭툭 건든다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          공격력이 없어 빗자루로 쓸면 힘없이 쓸려납니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이 벌레가 있어서 그런지 거미나 개미 같이 일반적인 벌레들은 보이지 않습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그리 강해보이진 않는데. (일단 전부 쓸어내기...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          EVENT. 자살 저택
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          https://youtu.be/NSRBHVRxYGI?si=l7qyHbQ_-lcH9Imj
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 청소에 집중하고 있으면, 2층에서부터 발걸음 소리가 들려옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          인기척을 내는 게 차현안인가 싶어서 고개를 들어 올려다보면, 그 자리에 있는 사람은···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          처음 보는 남성입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          관찰력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...?
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=80 관찰력 (1D100&lt;=80) 보너스, 패널티 주사위[0] ＞ 42 ＞ 42 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          그는 30대 후반쯤 되어보이며 유행에 다소 뒤떨어진 옷을 입고 있다는 사실을 깨닫습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손에는 유리잔을 들고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신과 눈이 마주치자, 남성은 기괴한 미소를 지으며 잔에 담긴 것을 입에 머금습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          액체를 삼키고 목울대가 움직이는 생경한 광경을 보고 있으면,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          몇 초 후 남성은 자신의 온몸을 잡아뜯으며 발광합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          비틀거리던 그가 난간에 몸을 기대더니 이내 1층으로 맥없이 추락합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...?!
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          바닥에 떨어져 목이 부러지고 나서도 한참 동안 사지를 뒤틀다가···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          절명합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          굳이 확인하지 않아도 그가 사망했음을 알 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 판정 (1/1d3).
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=47 이성체크 (1D100&lt;=47) 보너스, 패널티 주사위[0] ＞ 38 ＞ 38 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 47 → 46
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          이, 이게 무슨. (다시 제 눈 세게 비비고, 살짝 물러나 멀리서 시체 살핀다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그 광경을 보고 있으면 누군가가 말을 걸어옵니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          봤어?
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어느덧 서재 밖으로 나온 그가 덤덤하게 말합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          차현안 씨. (...) 저, 저게 무슨,
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그쪽이 할 일은 청소라고 했잖아?
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          이 저택에서 나오는 시체를 치워줘. 혼자 하려니까 좀 버거워서.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... ... 진심, 인가? (아니, 가짜다. 혹은 악몽, 그게 아니면... ...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          걱정 마. 진짜 시체는 아니니까.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          이 저택, 아무래도 예전에 불미스러운 일이 있었던 모양이라, '자살 저택'이라고도 부르거든. 죽은 사람의 유령이 자꾸 나타나서.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그게 지금 문제가 아니잖아...! 이게, 이게 대체... (잠시 눈 꾹 감았다가, 심호흡하며 진정...) ... 그래서, 저걸 치우는 게 내 일이라고?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그래. 다른 청소도 하면서 겸사겸사. (... ...)
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          뭐 어때, 진짜 사람도 아니고 유령인데.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... ... 당신이, 여기 나타난 것처럼? (...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          나는 저들과 같지는 않지만. 유령이니까 비슷하겠지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (하나도 이해되지 않아...) 저건, 어떻게 치우면... 되는 거지.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안은 정원을 가리킵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          장미 정원에 시체를 묻으라는 의미입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          참고로 밖은 비가 오고 있습니다···.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (비가 문제가 아니잖아... ...) 진심... 인가?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          왜. 못하겠나?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          못한다 하면 그만두게는 해주려고?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          글쎄.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (... ...) 그래, 그래... ... 저런 게 대략 어느 주기로 나오는 거야? (어차피 도망갈 생각이 없으니, 그만둘 수도 없다...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          뭐... 꽤 자주? 규칙적으로 나오는 건 아니고.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (이게 이틀로 해결은 되는 건가?) 알겠, 으니까... (잠시 손바닥으로 얼굴 문대며 정신차린다...) 일단 좀 도와주지? 이래 봬도 시체 땅에 묻기는 해본 적 없어서 말이야.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          유령이니까 별로 무겁진 않을걸. 그냥 대충 땅 파고 넣으면 돼. 도구들은 정원에 있고.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... (긴장한 손은 주먹 쥐고...) 당신이 시범을 좀 보였으면 하는데.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (한숨 쉰다.) 대충해도 상관 없으니 알아서 해. (그 말만 하고는 다시 서재로...)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그래. (당신이 사라지면, 깊게 한숨 푹... ...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          ...
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어찌저찌 시체를 치우고 나면, 엄청나게 지친 기분입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이제 방으로 들어가서 쉽시다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (터덜...) (비가 와서 더 눅눅한 기분이다...) 설마 묻었나? ... (제 손바닥 확인.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          흙과 피가 이곳저곳 묻었네요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (으...) (... 불편하게 방으로 돌아간다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안은 내일 하루는 어느정도 알아서 시간을 보내도 된다고 합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          물론 청소 일을 병행하면서요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          흙과 피가 묻은 몸을 씻고 차현안이 준비한 새옷으로 갈아입습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          몸에 약간 헐렁하게 맞는 셔츠는 너무 불편하지 않아 얼마든지 입고 잘 수 있을 것 같습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 이건 또 어디서 난 거야? (제 셔츠 빤히...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          아무튼, 눈을 감고 잠을 청합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          균일하게 창문에 부딪쳤다 유리를 타고 흐르는 빗소리가 들리지 않게 될 무렵, 완전히 잠에 빠져듭니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          …
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          으직,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          머리가 박살나는 소리와 함께 눈을 뜹니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          자고 일어나면 두 구의 시체가 1층 바닥에 널브러져 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 아침 식사 준비를 마치고 먼저 자리에 앉아있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          식사를 마치고 치우든, 먹기 전에 치우든 상관 없습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어느덧 비는 그쳐 날씨는 제법 맑습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (어느 쪽이든 토할 것 같아...) 저기, 차현안 씨...
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          왜. (우물우물...)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          두 구나 쌓였는데. 전부 나 홀로 치워야 하나?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그러라고 그쪽 불렀으니까.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          하나 정도는 도와줘도 되지 않겠어?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          나 먹고 있는 거 안 보여?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그럼 당신 다 먹고 나서. (... 묘하게 간절하다...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          난 바쁘거든.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 허, 그래. (차라리 같이 먹기라도 하면서 회피를 택한다...) (원래라면 꽤 신나는 상황이었을 텐데.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (말없이 우물우물...)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (앞에 앉고, 식사...) 밥은 당신이 한 거야?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          뭐, 그렇지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          이거 영광이네. 당신과 한 지붕 밑에서 자고, 당신이 해주는 밥을 먹고... (최대한 여상스레...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (무시)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          흐흠. (... 한 숟갈 뜬다.) 그러고 보니, ... 어제 내게 장미 정원을 준다 했지. (나한테 그런 일을 시켜놓고?...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그래. (유령 시체가 묻혀있지만)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 진심인가? (...) 아니, 그 전에... 그럼 여길 앞으로도 계속 '청소'해야 한다는 말은 아니지? 응?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          오늘 하루 정도만 더 하면 되겠네.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그러면, 다행이다만. (... 그러고 보니, 하루...) 하루 뒤면 당신은 정말 돌아가는 건가? 더 남을 순 없어? (시체고 뭐고, 제게 제일 중요한 건...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          뭐, 나도 얼른 정리하고 돌아가야 하니까. 언제까지고 여기 있을 생각은 없어.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그래. (...) 당신은 어쩌다 이런 곳의 관리를 맡게 된 거람. 뭐, 당신이 내게 그러듯 당신을 싫어한 누군가에게 물려받기라도 했나? 나로선 당신을 다시 볼 수 있어 이득이지만.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (... ...) 그쪽이 알 바는 아닌데. 나도 어쩌다보니 맡게 된 거야. (우물거리다가 이내 식기 내려놓고.) 그쪽도 다 먹으면 얼른 저거 치워. 그 후에는 자유 시간 가져도 되니까.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          흐흠. (더 놀려볼까.) 덕분에 당신의 마지막은 내가 보게 됐네. 끝까지 눈에 담고 싶던 소원을, 이렇게 이루게 될 줄이야. 이대로 이루지 못한 채 잃어버릴 것이라 생각했는데... ... (그래,
+          잘 된 일이다. 잘 된 일이야...) 뭐, 시키신대로 해야죠. 그땐 당신도 자유 시간이려나?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... (어쩐지 불쾌한 표정으로 가볍게 무시하고 말없이 자리에서 일어난다.) 아니, 나는 계속해서 정리해야지. 아직 할 게 많거든. 다 먹었으면 그렇게 떠들어댈 시간에 청소나 하지 그래?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그렇다면야 자유도 자유가 아니게 되는데... 그래, 나도 다 먹었고. (자신 역시 일어나며 식기 치운다. 벌써 구역질이 나는 것 같다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안도 식기 치우고 마저 서재로 들어갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이제 할 일은... 저 시체들을 치우는 것이네요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (하... ...)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          (치운... 다. 최대한 시선 돌리고 자세히 보지 않으려 노력하며...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그렇게 시체들을 치우고 나면... 또 굉장히 지치는 기분이네요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이제 자유시간을 가질까요?
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정원을 둘러보거나, 시어터 룸에서 영화를 보거나, 와인을 마시거나...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (서재...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          쫓겨날지도...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (...)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          그럼... 정원이나 가볼까. (딱히 휴식은 될 것 같지 않지만, 바깥을 살펴보고 싶다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          EVENT. 정원 구경
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정원의 장미들이 바람 한 점 없는 날에도 흔들리고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          관찰력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=80 관찰력 (1D100&lt;=80) 보너스, 패널티 주사위[0] ＞ 45 ＞ 45 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          어제 처음 봤을 때에는 봉오리였는데, 어느덧 반쯤 피어났다는 사실을 깨닫습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (지금 이거, 양분이... ...) 아니, 더 생각하지 말자...
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          가까이 가면 문득, 속삭이는 소리가 들린 것 같다는 착각이 얼핏 스쳐지나갑니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...? (다시 귀 기울이고.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그렇게 장미 정원에 시선을 두고 있으면,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          텅빈 눈을 한 유령 하나가 그대로 정원을 가로질러 지나가는 광경을 목격합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... (저거 또 죽는 거 아니겠지?) (조심히 뒤를 쫓는다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          유령은 금방 형체를 감춥니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          … 여기에 더 있을까요?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (더 있기 싫다...) (다시 안으로 들어가고. 방금 본 시어터 룸이나 갈까...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          EVENT. 영화 감상
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          https://youtu.be/OPv6S8okUeA?si=RBgQRztLj8IuEa1L
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택에 마련된 시어터 룸에서 클래식 영화를 감상합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          [The Ghost and Mrs. Muir]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          1947년 제작된 상영시간 1시간 44분짜리 흑백영화입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이야기는 젊은 과부인 미스 머가 바닷가의 오래된 저택으로 이사하면서 시작됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그곳에서 그녀는 한때 전설적인 선장이었던 대니얼 그렉의 유령을 만나게 되는데, 그는 자신의 과거와 미완의 사랑에 얽매인 채 저택에 머물고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          미스 머가 유령에게 느끼던 초기의 두려움과 경계심은 시간이 지날수록 또다른 마음으로 변질됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그것은 천천히, 아주 느리게 깊은 정서적 교감으로 발전합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          미스 머는 선장의 과거 이야기를 들으며 그가 느꼈던 상실과 후회의 아픔을 공유하고, 자신 또한 내면의 공허함과 외로움을 드러냅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          두 존재는 서로의 상처를 어루만지며 인간과 유령이라는 장벽을 넘어선 특별한 유대를 형성하지만, 존재의 장벽으로 인해 결국 이어지지 못하고···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          영화는 클라이막스를 지나 엔딩을 맞이합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 흠. (꽤 기분전환이 됐다.)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          그나저나, 하필 이런 곳에서 이런 영화를 보게 될 줄이야... (저택, 2층 서재의 유령 하나...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          영화를 본 후, 밖으로 나오자 마침 차현안의 실루엣이 보입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 계단 아래에 서있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          공허한 눈의 유령이 차현안를 껴안고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 무언가를 발작적으로 중얼거리고 있으며, 차현안은 가만히 그걸 받아줍니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          뭐야, 언제 서재에서 나왔... ...?
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          얼마 지나지 않아,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 천천히 자신을 안고 있던 유령을 떼어내더니···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손을 뻗어 유령의 목을 조릅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          유령의 눈이 뒤집어지고, 입에서 거품이 흘러나옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          강한 악력이 목을 쥐고 비틀어냅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          희미하게 저항하던 유령은 이내 차현안의 손아귀에서 절명합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 그것이 움직이지 않게 되고 나서도 한참이나 쥐고 있다가 천천히 내려놓습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... ... 차현안 씨?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 뭐야? (손 툭툭 턴다.)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 방금 그건 누구고, 뭘 하고 있던 거지.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          보면 몰라? 유령이잖아. 가끔 좀 정신 나간 것들이 있어서 말이지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          꽤 다정하게 붙어있나 싶더니만. (...) 그나저나, 유령들이 당신에게도 접근하는 건가? 돌아다니다 죽기만 하는 줄 알았는데...
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          제압해 둔 것뿐이야. (...) 뭐, 가끔 그렇지. 어차피 유령이라 실질적으로 해를 가하진 못하니 걱정하진 말고 신경 꺼. (그러고는 다시 서재로 돌아간다.)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          잠, 잠깐... (당신이 돌아가면 그 자리 허망하게 바라보고...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          … 어쩐지 술이 마시고 싶어지는군요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (알코올이 필요하다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          EVENT. 와인 테이스팅
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택에 있는 아무 술이나 꺼냅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          프랑스 보르도산 Cabernet Sauvignon… 이라네요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          흠. 와인은 그리 잘 아는 분야가 아닌데... (이리저리 살핀다...) 아마 그 주인인가 뭔가의 취향이려나.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          깊은 적포도주의 빛깔과 풍부한 타닌, 그리고 은은한 오크 향이 어우러져 훌륭한 흥취를 완성시킵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          와인을 마시고 있으면, 차현안이 다가옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          방금 정리하러 가지 않았나? 그는 잔을 하나 더 꺼내더니 묵묵히 와인을 마시네요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아니, 마시는 건가…? 실제로 마시는 양은 조금도 안 되는 것 같아 보입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          맛만 보는 걸까요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          취하긴 싫나 봐? (주량은 잘 알고 있다...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... (무시하고 마시?기.)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          건배라도 하지 그래. (잔 내밀고.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          됐거든.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          왜, 지금 아니면 누군가와 잔을 부딪칠 일 다시 없을 텐데.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 필요 없어.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그렇다면야... (물러나는 척 하다가, 당신 쪽에 잔 들이밀며 억지로 짠 소리 낸다.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ...
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          (몸 돌려서 마신다...)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (재밌네.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안은 금방 잔을 내려 놓습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리고 차현안이 자리에서 일어나자,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          테이블이 흔들림과 동시에 잔이 바닥으로 떨어집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          와장창 소리를 내며 와인잔이 깨집니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          이런, (순간 당신 쪽에 손 내밀고, 유리조각 튀지 않게...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          하아... ... (...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          인상을 찌푸리곤 몸을 숙여 파편을 줍던 차현안이 문득 멈칫하고 제 손을 감싸쥡니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손가락에서 피가 나고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그 모습을 보면 ‘유령’이라는 말에 어울리지 않게, 시체를 남기며 죽어간 저택의 이들을 떠올립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          지능 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=70 지능 (아이디어) (1D100&lt;=70) 보너스, 패널티 주사위[0] ＞ 6 ＞ 6 ＞ 대단한 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          어딘가 위화감이 느껴집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정말 유령이 이렇게 살아있는 사람처럼 존재할 수 있나요?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그걸 그렇게 함부로 주우면 어떡하나. (...) 그런데, 차현안 씨... ... 유령이라면서, 피 한 번 잘 나네.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 왜, 그쪽도 봤잖아? 이 저택의 유령들은 다들 그래.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 유령은 맞는 건가? 보면 볼 수록, 이상할 정도로 생생하던데... (... 당신도. 사실 죽은 적 없었다는 것처럼...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          이봐. 그러면 아니겠어? 계속 똑같은 사람들이 나와서 죽기를 반복하는데.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          똑같은 사람들이 나온다고?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          봤잖아. 어제 죽은 사람들이 또 나와서 죽을걸.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 그런.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          https://youtu.be/CaExoYweZl8?si=73vHSE8auMOCHQ0_
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          적당히 자리를 정리하면 계단 난간에 목을 매 자살한 여성을 발견합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아까 정원에서 본 유령입니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (하... ...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          시체를 내려주고자 가까이 가면, 갑자기 발버둥치면서 제 목을 긁기 시작합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          끈이 끊어져 바닥으로 나뒹굴자, 신경질적으로 소리를 내지릅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          목이 부러졌는데도 즉사하지 못하고 괴로워하고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "그만, 이제 그만하고 싶어···."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "이정도 했으면 됐잖아···."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "나는 그냥 많은 사람들을 구하고 싶었을 뿐인데, 이건, 이건 불합리해···."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "나는 이 저택에서 천 번도 넘게 죽었다 살아나길 반복했는데!"
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "아무도 내가 여기서 죽어가고 있는 걸 알아주지 않아."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "아무도 날 구해주지 않아···."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          말을 마친 여인은 당신에게 제발 죽여달라고, 숨통을 끊어서 편하게 해달라고 사정하기 시작합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 이, 이게 무슨... (주춤한다. 그리고, 당신으로 시선 돌리며...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          당신이 주춤거리자, 차현안이 벽에 걸려있던 장식용 엽총을 집어들어 여성의 이마 정중앙을 쏩니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 귀찮게...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 방금 저 이가 말한 내용, 진짠가?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 뭐, 그래.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          더 거짓말 하기도 어려울 것 같네.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          거짓말이라는 건...
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          저들은 유령이 아니야. 이 저택과 계약한 이들이지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 계약?
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          당신은 여태까지 죽어간 유령들은 진짜 유령이 아니라,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          몇 세기 전부터 부활과 자살을 반복한 살아있는 사람이라는 사실을 알게 됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 판정 (1/1d3).
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=46 이성체크 (1D100&lt;=46) 보너스, 패널티 주사위[0] ＞ 55 ＞ 55 ＞ 실패
+          </span></p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b><span class="dice-line">
+            1D3 (1D3) ＞ 3
+          </span></p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 46 → 43
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 무슨, 그런 게 다 있어...
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          내가 주겠다고 한 장미 정원도 말이야. 이 정원에 핀 백장미들 봤지? 그건 세상에 존재하지 않는 성분들로 구성되어 있어. 그 장미에서 추출한 성분으로 앞으로 발생할 병을 고칠 약을 만들 수 있고.
+          그쪽이 아무리 악인이어도 세상을 멸망시키고 싶진 않겠지.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 내게, 뭘 원하고 있던 거야? 그 꽃을... 이용하라고?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그래. 그렇지 않으면 인류는 멸망할 테니까.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그것도 '계약'인가? 저택과의?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (고개 끄덕인다.)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          잠깐... ... (다시 제 미간 눌러잡고, 고개 푹 숙여 얼굴 누르다가... 다시 당신 본다.) 궁금한 게 있어. 그럼... ... 당신은 대체 뭐야? 이것들을 어떻게 알고 있으며, 왜...
+          ... 당신이 이 저택을 관리하는 역할인 거지?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 뭐, 저들과 다를 거 있겠어? 나도 그냥 똑같은 계약자지. 다만, 저들은 대부분 미쳐있기 때문에 내가 정리도 좀 하고 있는 것뿐이야.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          궁금한 건 이제 끝났나?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          당신도 희생했다고?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그래.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 어, 어째서... ... (아니, 이미 앞선 설명을 들을 때부터... 예상하지 않았다면 거짓말이지만.) 대체 왜, 무슨 일을 막으려고 그런 결정을 내린 거야?!
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          말했잖아. 앞으로 10년 뒤쯤이면 전염병으로 인류가 멸망할 거거든. 그 장미가 치료제가 될 수 있고.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          그쪽이 할 일은 단순해. 오늘 하루간 청소를 하고, 그 장미가 연구 될 수 있게끔 하는 거야.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 당신의 희생으론 그 병을 완전히 막지 못하기라도 한 건가?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          아니, 충분하지. 그걸 막는 방법이 치료제를 만드는 것일 뿐이야.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (머릿속이 뒤죽박죽이다.) 그래, 그래... ... 일단은, 알겠어. (분명 주인공답다. 참 끝까지 주인공다운 일을 한 걸 텐데... ...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          여기서 당신에게 진상이 공개되는 순간, 차현안에게 발현되어있던 광기의 진행에 박차를 가합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어차피 죽어 없어지는 것으로 의무를 다해야 하는 목숨이었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          언제가 좋을지 망설였지만 더는 망설일 이유가 존재하지 않습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          자신은 의무를 다했고, 그러니까 지금 죽으면 딱 적당히 좋을 것 같습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          말을 마친 차현안은 그대로,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          총을 꺼내어 자신의 머리에 대고는 쏩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          탕!
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          잠깐,
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그대로 바닥으로 쓰러지지만 즉사하진 않았나 보네요.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하지만 출혈이 발생한 부분을 손으로 막아봐도 소용이 없는 치명상입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 머지않아 차현안이 죽는다는 사실을 실감합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 판정 (1/1d3).
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=43 이성체크 (1D100&lt;=43) 보너스, 패널티 주사위[0] ＞ 21 ＞ 21 ＞ 어려운 성공
+          </span></p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 43 → 42
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          지금, ...뭐, 하는, (당장 당신 붙잡고, 상처 쥐어막으며... ...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          저택 바닥을 기어다니는 검은 벌레들이 죽어가는 차현안의 몸을 뒤덮습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          청소할 때 발견한 건 서너 마리 정도였지만, 지금은 바닥에서 수백, 수천, 아니···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          수만 마리가 기어들어와 차현안의 몸을 덮고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          가만히 보고 있으면 사각사각사각···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          종이를 갉아먹는 것 같은 소리가 납니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          눈에서 총기가 사라진 차현안의 몸에서 마지막 남은 생명력을 빨아내는 것 같기도 합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 판정 (0/1).
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=42 이성체크 (1D100&lt;=42) 보너스, 패널티 주사위[0] ＞ 85 ＞ 85 ＞ 실패
+          </span></p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 42 → 41
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          저리, 저리 가... ... (벌레 걷어내고, 또 걷어내며...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          https://youtu.be/V5rVgfQlJwE?si=RrOXnoyRFueF6qhi
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          벌레들을 걷어내자 벌레 몇 마리가 당신의 손등으로 기어올라옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          사각, 사각 소리는 가까워지자 좀 더 분명한 단어의 형태로 들려옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "계약 이행, 계약 이행."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "서둘러, 서둘러."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "완수, 완수."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "대가 회수, 대가 회수."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          인간들에게서 배운듯, 짧은 단어만을 기분 나쁘게 흉내내고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그건 마치 웃음소리처럼 들립니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          저리 가라고! (벌레 짓뭉갠다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안에게서 떨어지지 않으면, 벌레들이 문득 뚝 행동을 멈추더니 일제히 당신을 응시합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          입을 모아서, 이번에는 분명한 말소리를 냅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "아니면, 네가 대신할래?"
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          순간적으로 어지러워지며 귀에서 이명이 들려옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택에 일정 시간 이상 머무른 당신에게 광기: 희생양이 부여되면서, 따라서 선택지가 지급됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아직 차현안은 첫 번째 죽음을 맞이하지 않았으므로 이 계약은 완성되지 않았습니다···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 차현안을 대신해 저택에 남아 무수한 죽음을 반복하며 세계와 차현안을 구할 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          혹은 이 광기가 당신을 완전히 잠식하기 전에 저택에서 벗어날 수 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (하지만, 하루간 저택을 청소하여 장미가 연구될 수 있게 하라고... ...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          저택을 떠나나요?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (당신 내려다 본다. 피 닦아내고, 아직 죽지 않았을 당신에게 제 말이 닿았으면... 기원하며.) ... 끝까지 주인공답네, 당신은... ...
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          내가 이러니 어찌 당신을 애정하지 않을 수 있겠어. (어차피 이 작자는 다시금 희생하겠지. 목숨을 걸지 않더라도 항상 타인을 위해 희생해오던 사람이다. 그렇다면, 자신은 차라리...)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... 어찌 당신을 다시 바라보고 싶지 않을 수 있겠어. (저택에 남는다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          이성 10 차감.
+        </p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 41 → 31
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          다시 사각사각거리는 소리가 들리더니 벌레들이 순식간에 당신을 뒤덮습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          시야가 암전되고, 뒤죽박죽되었던 머릿속이 일순 깨끗하게 정리됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          오로지 명료한 문장만이 뇌에 새겨져 떠나가지 않습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그래, 죽자!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          세계를 위해 죽자!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안을 위해 죽어버리자!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          나 같은 건 세계의 비료가 되어버리자!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          2. 입장역전
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          https://youtu.be/sjz3F8WYFDg?si=i1YqRgzjFCiNdz0a
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어느 날, 당신이 세상을 떠났습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신의 유서는 변호사를 통해 공개되었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          스무 장이 넘는 두꺼운 문서에는 가족과 친지, 주변 지인들에게 남기는 감사와 작별 인사,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          재산 분배와 신변 정리에 관한 상세한 내용이 꼼꼼히 적혀 있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          모든 것이 정리된 듯 보였지만, 차현안의 이름은 그 어디에도 없었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          일주일 뒤, 차현안에게 익명의 편지가 도착합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아직 잉크 냄새가 남아 있는 듯한 편지지에는 단조로운 말투로 짤막한 문구가 적혀있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          ‘월광이 당신에게 남긴 유서를 갖고 있다’고.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여 차현안은 편지지를 쥔 채 저택 앞에 도달합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          문이 열리고, 정신을 차려보면 당신은 차현안의 앞에서 정원의 장미를 손질하고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손에 들린 정원 가위의 손잡이 촉감이 영 낯설지만은 않은 게, 이러고 지낸 지 며칠이나 지난 것 같습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          전신의 소유권을 타인에게 빼앗긴 것처럼 정신이 몽롱합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          내내 희미했던 의식이 차현안과 마주하니 완전히 또렷해집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안의 얼굴은 잔뜩 일그러져 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 모든 기억을 갖고 있으며, 자신의 자리를 당신이 빼앗았다는 사실 역시 인지합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          가장 중요한 것은 차현안에게선 아직 희생양(광기)가 풀리지 않았다는 사실입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하여튼 차현안의 머릿속을 점령한 건 단 한 가지 사념 뿐입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          빼앗겼다!! 내가 희생하고 싶었는데!!!!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 당신에게 다가가서 이게 무슨 짓이냐며 실랑이를 벌입니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          이봐, 이게 대체 뭐 하는 짓이지? 이건 내가 계획한 일이야. 그쪽이 신경쓸 바도 아니고. 그쪽은 그저 가만히 유산을 상속하기만 하면 된다고.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... ...
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          둘이면 더 많은 사람을 구할 수 있잖아. 그렇지 않나? 당신에게도 나쁠 것 없을 텐데. 10년 후의 전염병을 내가 없애고 나면, 당신은 그 이후의 또 다른 멸망을 막고 와.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 허. 그게 무슨 소리지? 그건 원래 내 자리였어. 그쪽이 그렇게 죽고 싶으면 나 다음에 하면 될 일이잖아? 10년 뒤에 오라고, 그쪽은.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          싫어. 그거나 그거나... 당신은 본래 하던 대로 악인을 단죄하기나 하라고. 그런 다음 저택과 계약까지 하면 금상천화 아닌가? 당신 입장에서도 내가 지상에 남는 것보다 당신이 남는 게 훨 낫지
+          않아?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          아니, 이미 내 일은 전부 끝마치고 왔어. 더군다나... 나는 장례식까지 했는데. 지금 나보고 부활 신청이라도 하라는 건가? 원래 내 계획이었고, 내 자리니 당장 비켜.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          뭐, 이젠 나도 장례식까지 했는데. (... 움찔한다.) 자리 같은 소리를... ... 흐흠. 됐으니까, 이제 당신이 여기서 나 대신 시체를 치워주든 하시죠. 꽃잎을 연구해야 한다며?
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          여기서 짚고 넘어가야할 사실은, 계약 대상자가 당신으로 변했을 뿐이지 아직 계약이 완료되지 않았다는 것입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안이 저택으로 돌아왔기 때문에 계약의 조건을 갖춘 사람이 둘이 되어 저택 안에 존재합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          따라서 완수는 무조건 ‘먼저 죽은 사람’으로 고정됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리고 이 사실은 두 사람의 머릿속에 동시에 스칩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어서 먼저 죽어서 저 인간 대신 희생해야겠다!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 당신을 제압하고, 정원 가위를 뺏어 목을 긋습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 차현안 씨!
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          안 돼! 차현안보다 빨리 죽어야 해요!
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          죽어가는 차현안에게서 가위를 뺏은 당신도 자살을 시도합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 다시, 2. 입장역전…...
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 또 옥신각신 하다 보면, 차현안이 먼저 휴전을 제안합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          둘 중 하나가 허튼 수를 쓰지 않도록 서로의 손 한쪽을 상대와 구속해두자고요.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 이젠 서로 잡혀가는 모양새라도 만드려고? (농.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          그쪽이 자꾸 내 자리를 뺏으니 이러는 거 아니야.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그놈의 자리, 자리... ... 당신은 당신 목숨이 그렇게, (... 말 멈춘다. 잠시, 추스리고...) 그래. 당신이나 허튼 수 쓰기만 해봐... 10년을 여기서 서로 막으며 지내게 해버릴
+          테니까. (...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          이미 난 전부 정리를 마친 일이야. (... ...)(표정 찌푸린다.) 하, 다른 사람이나 부를 걸 그랬나... (중얼.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          이런다고 뾰족한 수가 생기는 건 아니지만, 서로 구속하고 나면 광기가 일시적으로 약간이나마 진정됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          뭘 해야 할지, 어떻게 해야 할지 막힐 타이밍입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          관찰력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=80 관찰력 (1D100&lt;=80) 보너스, 패널티 주사위[0] ＞ 11 ＞ 11 ＞ 대단한 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          주변을 둘러보던 당신은 문득 벌레들이 모여드는 걸 발견합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ...? (괜히 인상 구겨진다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          1층과 2층을 잇는 계단의 뒷편에는 오래된 나무문이 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그들은 약간 뒤틀린 문과 벽 사이에 있는 미세한 틈으로 꾸물꾸물 기어서 이동하고 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          저긴 뭐가 있지? (손 끌어서, 당신에게 신호 주고...)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 저기?
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          손을 가져다 대면 미미한 한기가 올라옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          낡은 나무문으로 격리된 공간은 저택의 지하실입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어쩌면 이 상황을 타개할 방법이 있을지도 모릅니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (지하실로 들어선다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          썩은 나무판을 덧댄 계단이 아래로 끝도 없이 이어집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          한 걸음씩 밟을 때마다 체중을 이기지 못한 나무계단이 낮게 신음합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          청소는 커녕 제대로 된 사람의 손길이 닿지 않았는데도 거미줄 하나 없습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          빛을 비추면 이제는 익숙한 저택의 벌레들만이 다리를 꾸물거리며 사람의 발길을 피해 몸을 물립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          마침내 도착한 곳은 방처럼 꾸며진 연구실입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          연식이 느껴지는 오래된 유리병에는 화학 약품들이 담겨있고, 처음 보는 도구들이 늘어서 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          [침대], [선반], [책상], [화덕]을 볼 수 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (침대를 확인한다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          [침대]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          곰팡이가 슬은 모포만 덜렁 덮여있는 오래된 침대입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          죄수나 쓸법한 딱딱한 매트리스 아래로 천이 비죽 삐져나와 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택의 벌레들은 이곳에서부터 일렬로 오가고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          잘 보니, 매트리스에 손잡이가 달려있어 직접 들어 아래를 확인해볼 수 있을 것 같습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (손잡이 잡고, 들어올리며...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          반으로 갈라진 매트리스는 윗부분이 뚜껑처럼 열립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          내부에 만들어진 공간은 그야말로 ‘관’입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          해골 시체 한 구가 양손을 고이 모은 채 놓여 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          안에는 여태껏 본 저택의 벌레들이 바글바글합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손 안에는 편지 봉투가 들려 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...? (눈살 찌푸리다가, 편지 봉투 끄집어내 확인한다.)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          죽지 않는 병...? (되살아나는 현상을 의미하는 건가? 화덕에 눈길 주다가...) 우선, 다른 것 먼저... (선반 본다.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 잠깐.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          (잠시 이마 짚고 한숨...) 나, 이 사람... 아는 것 같은데.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...뭐? 누군데?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          저택의 첫 번째 계약자이자, 주인이야.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          해골이 익숙한 옷을 입고 있기도 하고, 벽에 걸린 초상화에서 봤어.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 허.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안이 먼저 잠시 손목의 구속을 풀고 유해를 수습할 수 있게 해달라고 요청합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          다른 위험한 짓을 벌이기엔 둘다 흉기가 없으니 안심하고 있는 걸지도 모르겠습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (의심...) 차라리 할 거면 같이 하는 게 어때.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (눈살 찌푸리며 바라본다.) 그 사이에 내가 죽기라도 할 것 같나? 흉기도 없는데?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그래. (감시하고 있어야지...) (손목 내민다.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          (구속 푼다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          이제 차현안과 당신은 서로 등진 채 잠시 따로 행동하게 됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 L의 요청을 받아 유해를 태우기 위해 화덕에 점화합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          얼마 지나지 않아 더운 공기가 올라옵니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... (불안하다. 계속 화덕쪽에 시선주며...) (선반 함께 본다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          [선반]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          증류 기구, 절구와 막자, 실험용 용기 및 플라스크, 약품들이 조금 산만하게 놓여 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          태그에 적힌 내용은 천연 원소나 광물, 식물 추출물로, 오랜 시간 밀폐된 공간에 있었다는 게 믿기지 않을 정도로 신선한 상태입니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 왜 이런 게... (용품들 둘러본다. 특별한 게 있나?)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          관찰 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=80 관찰력 (1D100&lt;=80) 보너스, 패널티 주사위[0] ＞ 49 ＞ 49 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          그 안에서 비소를 발견합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          엄청난 독극물이군요...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (화덕 방향 힐끔, 주머니에 넣어둔다...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          은밀행동 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=75 은밀행동 (1D100&lt;=75) 보너스, 패널티 주사위[0] ＞ 46 ＞ 46 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          몰래 챙깁니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          그럼 남은 건 책상인가... (확인한다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          [책상]
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          필기 도구와 두루마리 등이 난잡하게 어질러져 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          두루마리는 연구자가 직접 여러 화학식들을 적어둔 것들로, 어림잡아 백 개는 되는 것 같습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          대부분이 알아듣기 힘들 정도로 복잡한 내용으로 꽉 차 있는데, 간혹가다 아주 간단한 화학식들도 섞여 있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (화학식을 눈으로 훑는다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          관찰력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=80 관찰력 (1D100&lt;=80) 보너스, 패널티 주사위[0] ＞ 100 ＞ 100 ＞ 대실패
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          ... 무슨 말인지 하나도 모르겠습니다... ...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (... ... ...)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=70 자료조사 (1D100&lt;=70) 보너스, 패널티 주사위[0] ＞ 36 ＞ 36 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          두루마리 하나를 발견합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (펼쳐본다.)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... ...?
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          화덕에는 불이 일렁이고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 당신을 등지고 있고, 화학식에 적힌 재료는 전부 알기 쉽게 태그가 붙은 선반에서 찾을 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이 화학식을 사용해 연기를 만들고, 당신만 자철석 조각을 입에 문다면 이번에야말로 차현안를 재우고 계약을 완수할 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          즉, 그 누구의 방해도 받지 않고 자살할 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          해당 내용을 안 순간, 당신의 광기가 더욱 심화됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 10 차감.
+        </p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 31 → 21
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (만들 수... 있을 것 같다) (선반에서 물품 찾는다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          물품은 전부 쉽게 찾을 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          용광로 쪽을 보면, 작은 화덕과 함께 불의 온도를 조절하기 위한 풍량기가 설치되어 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          구조가 간단해서, 쉽게 불을 지필 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 L의 뼈를 분류하고 일부 던져넣기를 반복하느라 정신이 없습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          (... 자연스럽게, 불 온도를 400도씨로 맞추고...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          재료를 찾아서 이미 불타는 용광로에 던져넣는 것도 쉽습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          얼마 지나지 않아 좁은 지하실은 묘한 향을 내는 연기로 가득 찹니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          뒤늦게 이상한 낌새를 느낀 차현안이 소매로 코와 입을 막고 당신을 쳐다봅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하지만, 때는 이미 늦었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          수면 효과가 있는 연기를 마신 그는 눈이 풀린 채로 무릎부터 쓰러집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          마지막까지 당신을 붙잡기 위해 뻗은 손이 발치에 닿나 싶더니, 그대로 힘없이 늘어집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신의 광기는 건재합니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (이제... 됐다.) (대신하여 L의 조각을 용광로에 던져주고, 이제 자신은...)
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... ... 꼭 다시 와, 차현안 씨... ... 희생해서 이 저택으로. (차현안 씨의 손목 한 번 잡고, 그 손바닥에 입 한번 꾹 누르고... ... 자살한다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그렇게 당신은 첫 번째 죽음을 맞이합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          3. 물거품
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          https://youtu.be/yuKlm3eQPlM?si=moI0zRz_h9Ihzn71
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          시야가 조금씩 흐려지다가 완전히 암전합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 시간이 얼마나 흘렀을까, 발밑을 중심으로 희꾸무레한 빛이 번지더니 주변이 조금씩 희미하게 밝아집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 저택 복도 한복판에 서 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손에 들린 것은 독이 든 잔, 이제 두 번째 죽음을 맞이할 차례입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그것을 입 안에 머금고 나면, 목구멍이 타는 듯한 감각과 함께 창문 너머를 봅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          장미가 흐드러지게 핀 정원 한복판에서 차현안이 서있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리곤 며칠이고 움직이지 않습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정신력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=50 정신력 (1D100&lt;=50) 보너스, 패널티 주사위[0] ＞ 40 ＞ 40 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          정말 이걸로 충분한가요?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 어차피 그 성질머리에, 이런 기억을 품고 살아가는 이상 10년 하고도 얼마 뒤에는 함께 이 저택에 매몰되겠지.
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          세상도 두 번이나 구하고, 주인공은 다른 인물 탓에 희생을 실패하여... 다시금 세상을 구하고자 하는 거야. 이만큼 이상적인 영웅서사가 어디있다고. 그러니.. 만족할 수밖에.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          대답을 내뱉은 순간 또다시 시야가 어두워집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          다시 밝아졌을 때, 당신은 계단의 난간 위에 위태롭게 서있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          몸을 가누기 힘들고, 금방이라도 기울어져 아래로 추락할 것 같습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이제 세 번째 죽음을 맞이할 차례입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이 위에서 뛰어내리는 것만으로 간단히 목이 부러지거나 머리가 깨지겠죠.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손쉽게 절명합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차가운 바닥에 뺨을 댄 채 죽음을 실감하던 당신은 문득 시어터룸에서 새어나오는 익숙한 대사를 듣습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "인생은 너무 짧아서 영원히 서로 짖어댈 수는 없어요."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          "마담, 당신의 인생은 짧을지 모르지만, 제겐 무한한 시간이 있답니다."
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          굳이 시어터룸으로 보러가지 않아도 알 수 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택을 떠나지 못한 차현안이 시어터룸에 남아 영화를 틀어놓고 멍때리고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          다음 대사는 잘 들리지 않습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          세상이 온통 희뿌옇게 번져나갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정신력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=50 정신력 (1D100&lt;=50) 보너스, 패널티 주사위[0] ＞ 74 ＞ 74 ＞ 실패
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          눈을 감았다 뜨면 당신은 저택 복도 한복판에 서 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          손에 들린 것은 이미 매듭이 지어진 밧줄, 이제 네 번째 죽음을 맞이할 차례입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          계단 난간에 목을 매달고 나면, 강렬한 압박감이 척추를 타고 흐르며 삽시간에 머리로 피가 몰립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          흔들리는 시야 너머로 보이는 것이 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 이제 아무도 자신을 말리지 않는다는 것을 알고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          망설임 없이 칼을 꺼내 자신의 배를 찌릅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          두 번, 세 번···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정신력 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=50 정신력 (1D100&lt;=50) 보너스, 패널티 주사위[0] ＞ 29 ＞ 29 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          이것으로 충분한가요?
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어차피 죽을 그를 두고 떠나는 것이 정말 정답이었나요?
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이제 당신은 그 어떤 것도 말릴 수도 없고, 붙잡을 수 없게 되었는데.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그래서 정말 당신은 차현안을 구한 게 맞나요?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 이만큼, 이상적인 영웅서사가... ...
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          ... 왜, 여기서... 그러고 있는 거야, 차현안 씨... (충분하지 않다고 하면? 자신이, 무얼 할 수 있지...)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          정신을 차려보니 처음 보는 금빛 머리카락의 남성이 당신의 손목을 붙잡고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그를 보고 무어라 입을 떼기도 전에 그는 제 입가에 검지 손가락을 올립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          다른 손으론 천천히 어딘가를 가리킵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          장소는 지하실, 당신은 분명 이곳에 있는데 또다른 당신이 그곳에 누워있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          연기 속에서 뒤늦게 정신을 차리고 간신히 몸을 일으킨 차현안이 당신의 어깨를 쥐고 흔듭니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          재료에 착오가 있었을 수도 있고, 어쩌면 함께 태운 L의 뼈가 어떤 효과를 냈는지도 모릅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신이 반복한 죽음은 환각이었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 아직 죽지 않았습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 당신의 몸 위로 까맣게 달라붙는 벌레들을 쫓아내며, 화를 냅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택은 같은 무게의 희생을 요구합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          계약은 하나, 대상은 둘.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          몇 번이고 바뀌는 계약자가 빚어내는 오류인지, 당신은 시간과 공간의 틈에서 그 모든 광경을 지켜봅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          금발의 남성은 가만히 차현안이 있는 자리를 쳐다봅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어느덧 두 사람이 보고 있는 풍경은 완전히 다른 내용으로 변질됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          지푸라기 같은 머리카락에 음침한 인상, 빼빼 마른 몸, 사람이라면 그 누구도 자신의 곁에 두지 않는 천재 과학자가 있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그 누구에게도 이해받지 못했고, 그 역시 누군가를 이해할 수 없었기에 인적이 드문 곳에 저택을 짓고 홀로 살아왔습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그러던 어느 날, 그의 지붕 위로 한 명의 여행객이 뚝 떨어집니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 천연덕스러운 표정으로 묻습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          돈은 얼마든지 지불할 수 있으니 이곳에 머물 수 있냐고.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          찬란하게 빛나는 금발의 미남자는 아무렇지도 않게 그의 삶에 침범합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          영특한 머리에 비상한 눈썰미, 이해심 많은 그를 사랑하지 않을 수 있는 사람은 없었기에, 과학자는 천천히 그에게 빠져듭니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          두 사람은 때로는 친구, 때로는 동료, 때로는 연인이 되어 인생의 동반자로 살아갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그렇게 몇 년이 지난 어느 날 여행객은 과학자에게 자신의 비밀을 털어놓습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          -사실은 나, 죽지 못하는 병에 걸렸어.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          10년이 지나고 20년이 지나도 나는 지금 이 모습일 거야.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          너는 천천히 변해가겠지만 나는 변하지 않겠지.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그래도 너와 함께하고 싶어.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          과학자는 도저히 이해할 수 없었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어째서 신의 영역에 해당하는 불로불사를 ‘죽지 못하는 병’이라고 칭하냐고 묻습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그러자 여행객은 천천히 입을 뗍니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          과거, 그에겐 사실 가족이 있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          친구도 있었으며, 직장도 있었고, 그에게 전부였던 세상이 있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          전염병이 휩쓸고 지나가 그를 빼고 모두 죽어버리기 전까지만 해도.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그 이후로도 마찬가지였습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          어떤 사회에 편입되어도, 끝에는 항상 모든 사람들이 그를 두고 떠나버렸습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그러니 이건 저주고 병일 수 밖에 없다고 토로합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그 말을 들은 과학자는 비탄에 사로잡혔습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이미 여행객을 향한 사랑은 깊어질 대로 깊어져 있었기 때문입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그것은 일반적인 성애적 사랑을 뛰어넘어, 한 명의 인간으로서 마음 깊이, 혹은 간절히 누군가의 행복을 빌어주고자 하는 사랑이었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여 과학자는 여행객이 잠든 어느날 밤, 그를 두고 어디론가 떠납니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          처음에 그가 찾고자 했던 것은 ‘죽지 못하는 병을 치료할 수 있는 방법’이었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하지만, 몇 년을 떠돌아도 과학자는 그 방법을 찾아내지 못했습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여 그는 다른 방법을 찾아냅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그를 죽게 해줄 수 없다면, 하다못해 그가 사는 세상을 지켜주고 싶었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그가 불행한 경위로 또다시 소중한 이를 잃게 하고 싶지 않았습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이를 테면 질병, 이를 테면 재해, 이를 테면···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          또 이를 테면.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여 그는 악마와 계약해 세상의 모든 인과를 짊어질 저택을 만들어낸 것입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          불로불사를 죽이는 방법보다도, 수백만 명을 구하는 방법을 찾아내는 게 더 쉬웠다는 것은 정말 아이러니하지만,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          소중한 사람의 행복을 빌기 위해 자신을 내다버릴 사람은 세상에 얼마든지 있었기 때문에···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          수백만 번의 자살을 마친 과학자는 침대 아래에서 조용히 죽음을 맞이합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          언젠가 있을 여행객과의 재회를 기약하며···.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 자신의 눈앞에 있는 사람이 그 여행객임을 깨닫습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 천천히 손가락을 내리고 입을 엽니다.
+        </p>
+        <p class="ccb-player p_c4"><b>금발의 남성</b>
+          L에게 전해줘.
+        </p>
+        <p class="ccb-player continued-line p_c4"><b>금발의 남성</b>
+          C는 죽었다고.
+        </p>
+        <p class="ccb-player continued-line p_c4"><b>금발의 남성</b>
+          마지막 순간은 외롭지 않고 따뜻했다고.
+        </p>
+        <p class="ccb-player continued-line p_c4"><b>금발의 남성</b>
+          그러니 이제 걱정할 건 없다고.
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          https://youtu.be/NdAHnqXMXsQ?si=wzktbR0H_gl2a0L0
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이 저택에 걸린 저주는 처음부터 L이 죽지 않는 병에 걸린 C를 위해 만든 제약이었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          따라서 C가 살아있다고 인지했기 때문에 억지력이 발동해 저주와 계약 둘다 제대로 기능할 수 있었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그러나 지금, 당신을 통해 저택의 존재 의의였던 C의 죽음이 인지됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그것으로 당신에게 걸려있던 희생양 광기가 해제됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이성 20 회복.
+        </p>
+        <p class="ccb-player p_system"><b>system</b>
+          [ 월광 ] SAN : 21 → 41
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          정신을 차려보니 당신은 정문 앞에 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 문에 손을 올리는 것만으로 위화감을 느낍니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택은 단 한번도 이렇게 계약이 완성되지 않은 채로 대상이 빈번하게 바뀐 적이 없었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          긴 시간 동안 그 모든 규칙과 제약을 통솔하던 주박은 거듭되는 혼선으로 혼란을 일으켜 깨지려고 하고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리고 그것이 가장 먼저 드러나는 대상은 바로 기존 계약자들일 것입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신이 차현안을 찾기 위해 서둘러 문을 열고 정원으로 들어서자마자 자신의 앞으로 들이닥치는 강렬한 열기를 느낍니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택과 정원에 불이 붙어있습니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ...?! 차현안 씨,
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          그 안에서, 저택 밖으로 빠져나와 정원을 거니는 유령들을 발견합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그들은 고장난 자동인형처럼 불길 속을 하염없이 배회하고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 그들 중 누군가가 불을 질렀다는 사실을 깨닫습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          지능 판정.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=70 지능 (아이디어) (1D100&lt;=70) 보너스, 패널티 주사위[0] ＞ 56 ＞ 56 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          현재 계약 대상자는 차현안입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          광기의 해제로 당신은 이제 계약 자격이 박탈되었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이제 더는 당신이 자원한다고 해도 계약의 주도권을 빼앗아 올 수 없지만, 차현안은 다릅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아직 불타는 정원에서 장미를 손질하고 있으며, 저택의 혼란과 관계없이 계약이 유효하다고 생각하고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그러니 그는 다시 한 번 기꺼이 죽으려고 할 것입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아마도 당신이 오기 전에.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그가 지금 목숨을 끊어버리면 두 번 다시 되돌릴 수 없습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          불길은 넘실거리며 점점 더 빠르게 번지고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이내 곧 화마가 정원을 집어 삼킬 것입니다.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          차현안 씨!! (당장 정원으로 들어가서, 당신을 찾는다.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          https://youtu.be/yle4NhnmU3I?si=J-mOAyNazl93Smpv
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 망설임 없이 불타는 장미 정원 안으로 뛰어들어갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          예상대로 차현안은 불길이 번지는 정원을 빠져나갈 생각이 전혀 없는지,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정원 가위를 든 채 불이 붙은 장미 정원 한복판에 서서 그 모습을 가만히 지켜보고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          두 사람의 시선이 마주칩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          몇 초간의 정적 후, 당신을 본 차현안은 정원 가위를 내던지고 도망칩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 이미 불에 반쯤 집어삼켜진 저택 안으로 뛰어 들어갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          민첩 대항.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b><span class="dice-line">
+            cc&lt;=85 민첩 (1D100&lt;=85) 보너스, 패널티 주사위[0] ＞ 62 ＞ 62 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          이 미친, ... 제발, 기다려...!
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=60 민첩 (1D100&lt;=60) 보너스, 패널티 주사위[0] ＞ 25 ＞ 25 ＞ 어려운 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          민첩 대항.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b><span class="dice-line">
+            cc&lt;=85 민첩 (1D100&lt;=85) 보너스, 패널티 주사위[0] ＞ 79 ＞ 79 ＞ 보통 성공
+          </span></p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=60 민첩 (1D100&lt;=60) 보너스, 패널티 주사위[0] ＞ 26 ＞ 26 ＞ 어려운 성공
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          다시, 민첩 대항.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b><span class="dice-line">
+            cc&lt;=85 민첩 (1D100&lt;=85) 보너스, 패널티 주사위[0] ＞ 87 ＞ 87 ＞ 실패
+          </span></p>
+        <p class="ccb-player p_c2"><b>월광</b><span class="dice-line">
+            cc&lt;=60 민첩 (1D100&lt;=60) 보너스, 패널티 주사위[0] ＞ 73 ＞ 73 ＞ 실패
+          </span></p>
+        <p class="ccb-player p_c1"><b> </b>
+          그가 뛰어들어간 곳은 한 번도 들어가보지 못한 차현안의 방입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          전신이 타고 피부가 녹아내리는 듯한 열기에 휩싸여 한걸음을 내딛는 것도 쉽지 않습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하지만 당신은 가까스로 그곳까지 도달합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          아무것도 없는 방의 한편에 붙은 거대한 초상화는 절반 이상이 화재의 먹잇감이 되어 더는 얼굴을 알아볼 수 없게 되었습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          활짝 열린 창문 안으로 들이닥친 바람에 불붙은 커튼이 흔들렸다가 걷힙니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          일순 세상의 모든 순간이 슬로우 모션을 걸어둔 것처럼 느릿하게 흘러갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          커튼 뒤에 서있던 차현안과 시선이 맞닥뜨립니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          더는 도망갈 수 없는 자리에서 차현안이 말합니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          세상의 모든 일에 의미 같은 건 없어.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          내 인생의 마지막은 나를 위해 죽게 해줘.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          내가 바라는 건 단 하나야.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          내가…
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          내가, 죽어서.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          이렇게라도 죗값을 치렀으면 좋겠다고.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          내가 죄를 지은 만큼.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그는 그렇게 한없이 자기중심적이고 이기적인 말을 늘어놓습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          진정으로 타인을 위한 희생이었다면 결코 늘어놓지 않을 말들을.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          정말로 그 어느 것에도 의미 같은 걸 두지 않았다면 시작되지 않았을 이야기입니다.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 그쪽이 그렇게나 바라던, 주인공 다운 최후잖아? 대체 왜 막으려고 드는 거지?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 바보같기는.
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          스스로는 그리 평범한 인간이라고, 주인공 같은 게 아니라 하더니... 자신의 최후가 주인공 같은 건 잘 알고 있나 봐?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 허. 그쪽 수준에 맞춰서 설명해 줬을 뿐이야. 나는 그저 마지막까지 내 죗값을 치르려고 하는 거고. 주인공만 하면 뭐든 좋아했잖아? 그러니 순순히 돌아가. 어차피 이제 돌이킬 수도 없으니까.
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 그러니까 바보같다는 것 아니야. 나는... (주먹 꽉 쥐다가, 당신에게 다가간다.) 이 저택에 들어선 순간부터 지금까지 단 한 번도, 당신이 내 눈앞에서 죽길 바라지 않았어! 단 한 번도,
+          한 순간도!
+        </p>
+        <p class="ccb-player continued-line p_c2"><b>월광</b>
+          그놈의 자리, 희생... ... 그리 주인공으로 보지 말라고 하면서, 당신 역시 날 평범한 인간으로 본 적은 한 순간도 없었지?
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          좋아하던 주인공을 볼 수 없게 되니 아쉽기라도 한 건가? 그쪽이 그렇게 바라던 추락이잖아. 언젠가는 내가 이렇게 될 거라고 정말 한치도 예상하지 못했었나? 이건 그쪽이 그렇게나 좋아하던 극에 대한
+          단죄이기도 해.
+        </p>
+        <p class="ccb-player continued-line p_c3"><b>차현안</b>
+          그쪽이 먼저 악인을 자처하고, 온갖 행세를 해댔으면서... 나한테 뭘 바라는 거지? 하하. 웃기지도 않는 소리를...
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... (당신 멱살 부여잡고, 고개 푹 숙여서...) 살아. 제발... 여태 더이상 방도가 없으니 당신과 이곳에 영원토록 남아있으려고만 했다면, 이제는... ... 주인공다운 희생이고 뭐고
+          필요 없어. 그냥, 살아달라고... ...
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 왜 그런 걸 바라는 거지? 이해가 안 되는데. 주인공이니 뭐니, 실컷 떠들어 놓고... 이제 와서 아쉬운 건가? 이봐. 나는 사람을 수없이 해치고 죽인 사람이야. 그렇다면 그만큼 죽는
+          것이 맞겠지. 죄를 지었으면... 그만큼 죗값을 치러야 하잖아?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... (고개 힘껏 내젓는다.) 당신이 그리 말한 감옥으로 들어가든지, 자신이 해쳐온 건 전부 악인이었으니 죗값을 세지 않아도 괜찮다든지... ... 피할 방법은 많잖아. 근데 왜 죽을 생각만,
+          하는 거야. 결국 끝까지 타인을 위한 희생이고 뭐고 아니잖아...! 그냥, 당신 스스로를 위해... ... (멱 꽉 쥐고,) 무슨 수를 쓰더라도 당신이 눈 앞에 있는 이상, 그냥 죽게는 두지 않을
+          거야... 당신을 따라가더라도, 당신과 목숨을 맞바꾸더라도. 이제와서 아쉬운 게 맞으니까, 살라고.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 내가 왜 그래야 하지? 죄를 지었으면 모두 그만큼의 죗값을 치러야 하고, 나는 남들을 그렇게 만들고 다녔지. 그러니 이젠 내 차례가 온 것뿐이야. 설마, 내가 그 짓거리들을 하고 다니면서도
+          멀쩡하게 살 수 있을 거라 생각한 건가? ... 그리고, 내가 계속해서 죽는 대신에 다른 이들도 구할 수 있지. 지금 나로서는 이 선택지를 포기할 이유가 없는데. (...)(눈살 찌푸리며
+          바라본다.) 대체 왜 그렇게 내 생존을 바라는 거지? 이제 와서 아쉽다는 이유로? 여기 있으면 곧 그쪽도 죽어. 고작 그딴 감정으로 나랑 같이 죽을 셈인가?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 적어도 자신의 죄에 있어 이중잣대를 들이밀지 않을 건 알고 있었지. 그렇지만, 죽음을 택할 줄 알았다면... 그런 태도 따위 계속했을 리가, (좋아하지 않았을 것이다. 그를 응원하고
+          관극하지도 않았을 것이다...) 어차피 이 저택의 굴레는 깨져가고 있어. 곧 당신의 계약도 의미 없게 될 거고, 단순 무식한 죽음이 될 뿐이라고... (...) ...그래, 고작 이런 감정으로...
+          적어도 당신이 죽여온 사람들 중 죄 하나 저지르지 않은 인간 하나를 끼워넣을 수 있겠지. 그를 당신이 기피할 걸 알아. 단죄와 죗값의 고리를, 당신이 꿈꿔온 대로 완벽히 끊어내고 싶다면... 여기서
+          나가자. 적어도 여기가 당신 무덤이 되지 못하도록, 내가 막을 거니까.
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... 하하. 정해진 끝이었어. 나는 이미, 내 끝을 예감하고 정리했다고... 죽음을 택할 줄 알았으면, 관뒀다고? 대체 왜지? 내가 하는 모든 것을 주인공 타령하며 긍정했잖아. 이건 그 끝일
+          뿐이야. 애초에 감옥에 들어가나, 죽나... 무슨 차이지? 내가 살아서 고통받기를 원하기라도 하는 건가? (... ...) 그렇대도 상관없어. 어차피, 이 저택이 아니었어도 죽을 예정이었으니까.
+          그래, 단순 무식한 죽음. 그게 내가 바라는 거라면, 무슨 문제가 있지? (무심한 표정으로 바라본다.) ... ... 참 이해되지 않는군. 그쪽은 언제나 이해가 된 적이 없었지만. 고작 그런
+          감정으로, 이런 짓을... (...) 그래서, 지금 제 목숨 가지고 협박이라도 하는 건가? 내가 이곳에서 나가고 죽는다면, 그건 무슨 차이가 있지? 단지 여기서 죽지만 않으면 만족하는 건가?
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... 상대가 죽지 말았으면 하는 감정을, 이해 못 하는 건가? (...) 살아서 고통받으라는 말이 아니라, 그저 죽지 말라는 뜻이잖아... ... 아무리 당신을 주인공 취급하고 지켜보면서 내가
+          즐거웠고, 그로부터 위안을 얻었다 해도 그 끝이 당신의 죽음이었으면 좋아하지 않았을 거야. 이 단순한 걸 왜 전혀...! 내가 당신을 주인공 타령할 때, 당신 역시 날 그저 감정 가진 인간으로 보지
+          않던 건, 똑같았다고. 그러니, 이렇게 된 거잖아... ... (...) 뭐? ... 하하, 희생정신의 주인공이고 뭐고, 그저 자살 희망자나 다름 없었네... ... (눈물 뚝뚝 떨어진다. 눈가의
+          열기가, 불 때문인지도 분간할 수 없게 되어...) 그래. 당신이 하등 제 목숨을 멀쩡하게 여기지 않으니까... 대신 내가 이 생을 당신에게 던져보겠다고. 죽지 못하게 막을 거야. 그게 지금은
+          이곳일 뿐이고, 밖에서도. 어느 곳에서도... ... 당신이 스스로 죽을 생각을 거둘 때까지. 그러니까 나가자고, 이제! (멱살 꽉 잡아, 당신을 창문 반대 방향으로 끌어가려 힘 준다.)
+        </p>
+        <p class="ccb-player p_c3"><b>차현안</b>
+          ... ... 그쪽이 지금까지 내게 악인과 같은 태도만 보여줬잖아. 사람들이 다치고 죽을 위기에서도, 재밌다고 상황을 구경하기만 했지. 그런데 뭐? 내가 그쪽을 평범한 인간으로 대하지 않는 이유는
+          명백해. 정상적인 사람이라면 내가 사람을 해치는 것을 보았을 때 경찰에 신고할 생각이나 했겠지. 재밌다고 더 보여달라는 게 아니라. 전부 그쪽의 업보야. ... 하하, 그저 죽지 말라니. 내가
+          그쪽한테 그런 말을 듣게 될 날이 올 줄은 몰랐는데. 자살 희망자라... 뭐, 맞는 말이지. 그러니 떠나. 난 더 이상 주인공 같은 거니 뭐니, 아무것도 아니니까. (눈물 흘리면 조금 당황하는 듯,
+          빤히 바라본다.) ... 그렇게나 아쉬운가? 그토록 좋아하던 극이니 어쩔 수 없는 건가. 그쪽은 내가 정말 누구였는지도 모르잖아. 정의로운 주인공, 거기에만 매몰되어 있었지. 극이 끝나는 건 그냥
+          그쪽 업보라고 생각해. 어쩔 수 없는. (... ...) 대체 왜... 이렇게까지 하는 거야. (눈살 찌푸리며 바라본다.) 무슨 상황에서도 재밌다고 관람이나 하던 그쪽이잖아. 그런데 왜 제 목숨이
+          위험한 상황까지 감수하며 이러는 거지? 내가 스스로 죽는 게 왜, 뭐가 문제라고? 그쪽이 뭘 하든 막을 수 없을 텐데. (그러나 힘주어 버티지는 않는다. 만약 제 앞의 인간이 정말로 평범한
+          사람이었다면, 그를 쉽게 내칠 수 없을뿐더러, 불에 타 죽는 건 저도 달갑지 않았으니...)
+        </p>
+        <p class="ccb-player p_c2"><b>월광</b>
+          ... ... 그렇다 해서, 당신의 죽음을 앞에 두고 의연할 수는 없다고... ... (업보, 제 업보다. 이런 날이 올 줄 알았으면, 결코 하지 않았을...) 그래, 그렇게 평범한 인간으로 보지
+          않았으니 나를 이런 곳에 데려오고, 당신의 장례식을 보고 온 지 일주일밖에 되지 않은 이에게 시체를 치우게 하고... 끝에는 당신의 자살을 두고만 보게 시킨 건가! 하하, 하... ... 나보다도,
+          당신이 더욱... 평범하지 않아. 주인공 취급한 이유가 있었어... ... (붙잡아 흔들고, 여전히 흐르는 눈물을 닦진 않은 채.) 그렇게 주인공다운 짓만 해댔으면서... 아니. 나는 당신이
+          주인공과 같아서 좋아했고, 주인공처럼 행동하는 당신을 좋아했지만... 그렇다고 당신이 주인공이지 않게 되면, 바로 좋아하지 않게 될 것 같았나? 당신 말마따나 다른 주인공이라도 찾으러 가게 될 줄
+          알았어? 나는, 그 일주일동안... ... 당신에게 느낀 허망감을 생각하느라, 관객이니 뭐니 하는 것도 전부 버려가고 있었는데... ... (...) 끝나지 마... ... 정녕 극이 아니더라도,
+          내가 당신을 하등 모르고 사실 정의로운 주인공조차 아니었다 하더라도. 내가 원하는 건, 그저... (사실 원하는 건 없을지도 모른다. 아무것도 원하지 않아서, 그저 당장은 당신이 살기만 하면
+          되었는데...) ... 됐어. 당신은 내가 말하는 이상 설득도 이해도 할 수 없을 것 같으니까... (그대로 고개 푹 숙이고 질질 끌어, 자신이 걸어온 길 돌아간다. 저택 밖으로.)
+        </p>
+        <p class="ccb-player p_c1"><b> </b>
+          차현안은 당신의 손에 이끌려 불 붙은 저택을 빠져나옵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          전신 곳곳에 이리저리 데이고 타들어간 화상이 남습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택을 집어삼킨 불은 긴 굴레의 끝을 고하고 영원할 것처럼 타오릅니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          해방된 유령이 어디로 가는지 두 사람에게는 알 길이 없습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여, 재투성이가 된 둘이 향하는 곳은 허무할 정도로 똑같은 삶입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          당신은 언젠가는 잠을 자고, 밥을 먹고, 이런 일이 없었던 것처럼 웃는 날이 올 것입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그러나 차현안은 “끝내고 싶어.” 라고 시작하는 말을 꺼내고,
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여 이 모든 일이 있음에도 예정된 끝을 맞이할 것입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그럼에도, 그렇기 때문에 남기고 싶은 말은 있는 법입니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          가장 이기적인 내가, 가장 상처 받은 당신에게 전하고 싶은 말은 단 한 가지.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          문득, 뒤에 있던 차현안이 한손으로 당신의 어깨를 툭툭 칩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          돌아본 차현안은 절반쯤 타버린 흰장미 한 송이를 들고 있습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안은 아무런 말 없이 그것을 당신에게 떠넘기듯 건넵니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리고는 무어라 말을 건네기 전에 당신을 앞질러서 걸어갑니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          장미향 대신 감도는 탄내가 은은하게 코를 자극합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          부디 한 송이의 꽃으로 이 마음이 전해지기를.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          그리하여 내일과 내일보다 더한 나날도 함께 살아갈 수 있기를.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          끝없는 감사의 말과 함께, 이 유서에 마침표를 더합니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          ED. 유서 C
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          차현안, 월광 생환.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          저택의 붕괴로 재해는 막을 수 없습니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          하지만, 한 송이의 장미를 기반으로 신약의 연구가 시작됩니다.
+        </p>
+        <p class="ccb-player continued-line p_c1"><b> </b>
+          늘 그렇듯, 인류는 멈춰서지 않을 것입니다.
+        </p>
+      </div>
+    </div>
+  </div>
+
+    </main>
+</body>
+</html>
